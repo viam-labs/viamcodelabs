@@ -1,6 +1,6 @@
 summary: Analyzing real estate properties with Streamlit 
 id: analyzing_real_estate_properties_with_streamlit
-categories: App-Development, Streamlit
+categories: devops, Streamlit
 environments: web
 status: Draft
 feedback link: https://github.com/Snowflake-Labs/sfguides/issues

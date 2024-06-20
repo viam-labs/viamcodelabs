@@ -94,7 +94,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <meta name="og:title" property="og:title" content="{{view.title}}" />
   <meta name="og:description" property="og:description" content="{{view.description}}" />
   <meta name="og:url" property="og:url" content="{{canonicalViewUrl(view)}}" />
-  <meta name="og:site_name" property="og:site_name" content="Snowflake Quickstarts" />
+  <meta name="og:site_name" property="og:site_name" content="Viam Quickstarts" />
   <meta name="og:determiner" property="og:determiner" content="" />
   <meta name="og:locale" property="og:locale" content="en_US" />
   <meta name="og:image" property="og:image" content="/images/og-image.png" />
@@ -102,7 +102,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <meta name="og:image:type" property="og:image:type" content="image/png" />
   <meta name="og:image:width" property="og:image:width" content="1200" />
   <meta name="og:image:height" property="og:image:height" content="1200" />
-  <meta name="og:image:alt" property="og:image:alt" content="Snowflake Quickstarts" />
+  <meta name="og:image:alt" property="og:image:alt" content="Viam Quickstarts" />
 
   <meta name="twitter:card" property="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" property="twitter:title" content="{{view.title}}" />
@@ -121,7 +121,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <div id="mainToolbar" class="paper-header">
       <div class="site-width layout horizontal">
         <a href="/">
-          <img src="/images/snowflake-logo-blue.svg" class="logo-devs" alt="Snowflake Logo">
+          <img src="/images/viam-logo-black.svg" class="logo-devs" alt="Viam Logo">
         </a>
         <div id="searchbar">
           <paper-input-container no-label-float>
@@ -138,15 +138,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <header id="banner" {% if view.id != 'default' -%}down{%- else %}down$="[[_toBoolean(selectedFilter)]]"{%- endif %}>
       <div class="site-width">
         {% if view.id == 'default' %}
-        <h2 class="banner-title">Getting Started with Snowflake</h2>
+        <h2 class="banner-title">Getting Started with Viam</h2>
         <div class="banner-description"
              data-filter-selected$="{% raw %}[[_toBoolean(selectedFilter)]]{% endraw %}">
           <p class="banner-info">
-            Follow along with our tutorials to get you up and running with the Snowflake Data Cloud.
+            Follow along with our tutorials to get you up and running with Viam.
             <br>
-            <a href="https://github.com/Snowflake-Labs/devlabs" target="_blank">Snowflake Quickstarts on GitHub</a> 
-            <a href="https://www.snowflake.com/virtual-hands-on-lab/?topic=data-applications" target="_blank">Virtual Hands-on Labs</a>
-            <a href="https://signup.snowflake.com/?utm_cta=trial-en-www-quickstart-nav-ss-evg" target="_blank">Free Trial</a>
+            <a href="https://github.com/viam-labs/viamquickstarts" target="_blank">Viam Quickstarts on GitHub</a> 
+            <a href="https://www.viam.com/resources/community#events" target="_blank">Events</a>
+            <a href="https://www.viam.com/product/demo-request" target="_blank">Request Demo</a>
           </p>
         {%- else -%}
           <div class="banner-description">
@@ -268,32 +268,32 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <footer id="footer">
       <div class="footer-wrapper site-width">
         <div class="link-list">
-          <img class=""alt="Snowflake Inc." src="https://developers.snowflake.com/wp-content/themes/developers/assets/img/logo-white.svg">
+          <img class=""alt="Viam Inc." src="/images/viam-logo-white.svg">
           </div>
         <div class="link-list">
           <label>Platform</label>
           <ul>
-            <li><a href="https://www.snowflake.com/cloud-data-platform/">Cloud Data Platform</a></li>
-            <li><a href="https://www.snowflake.com/product/architecture/">Architecture</a></li>
-            <li><a href="https://www.snowflake.com/pricing/">Pricing</a></li>
-            <li><a href="https://www.snowflake.com/data-marketplace/">Snowflake Marketplace</a></li>
+            <li><a href="https://www.viam.com/product/platform-overview">Overview</a></li>
+            <li><a href="https://docs.viam.com/get-started/try-viam/">Try Viam</a></li>
+            <li><a href="https://www.viam.com/product/pricing">Pricing</a></li>
+            <li><a href="https://app.viam.com/registry">Viam Registry</a></li>
           </ul>
         </div>
         <div class="link-list">
           <label>Connect</label>
           <ul>
-            <li><a href="https://community.snowflake.com/s/">Community</a></li>
-            <li><a href="https://developers.snowflake.com/">Developers</a></li>
-            <li><a href="https://medium.com/snowflake">Blog</a></li>
+            <li><a href="https://discord.gg/viam">Discord</a></li>
+            <li><a href="https://www.viam.com/resources/community#events">Events</a></li>
+            <li><a href="https://www.viam.com/blog">Blog</a></li>
           </ul>
         </div>
         <div class="link-list">
           <label>Resources</label>
           <ul>
-            <li><a href="https://resources.snowflake.com/">Resource Library</a></li>
-            <li><a href="https://www.snowflake.com/about/webinars/">Webinars</a></li>
-            <li><a href="https://docs.snowflake.com/">Documentation</a></li>
-            <li><a href="https://www.snowflake.com/legal/">Legal</a></li>
+            <li><a href="https://docs.viam.com/">Documentation</a></li>
+            <li><a href="https://docs.viam.com/use-cases/">How-To Guides</a></li>
+            <li><a href="https://docs.viam.com/tutorials/">Tutorials</a></li>
+            <li><a href="https://github.com/viamrobotics/">GitHub</a></li>
           </ul>
         </div>
       </div>
@@ -302,9 +302,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <div class="footerbar">
       <div class="site-width layout horizontal center justified">
         <span>
-          <a href="https://www.snowflake.com/terms-of-service/">Terms</a>
+          <a href="https://www.viam.com/terms">Terms</a>
           &nbsp; | &nbsp;
-          <a href="https://www.snowflake.com/privacy-policy/">Privacy</a>
+          <a href="https://www.viam.com/privacy">Privacy</a>
         </span>
       </div>
     </div>

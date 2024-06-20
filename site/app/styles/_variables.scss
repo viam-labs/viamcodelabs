@@ -14,25 +14,60 @@
  * limitations under the License.
  */
 
+ /* Viam Colors */
+
+ $viam-black:   #000000;
+ $medium-grey: #E7E5E4;
+ $light-grey:  #F5F5F5;
+
+ $pcb: #00501F;
+ $power-button: #00EF83;
+ $solar: #FFD400;
+ $mars-rover: #FF7D80;
+ $raspberry: #9F0049;
+ $hologram: #00E8E8;
+ $yoshimi: #FF79FF;
+ $cyberpunk: #A51AFF;
+ $hyperlink: #0000EA;
+ $power-wire: #FF0047;
+
  /* Snowflake Colors */
 
  $black:            #000000;
  $white:            #FFFFFF;
  $grey:             #F8F8F9;
 
- $snowflake-blue:   #29B5E8;
+ $snowflake-blue:   #00A1E0;
+ $snowflake-blue:   $viam-black;
  $blue:             $snowflake-blue;
+ 
  $mid-blue:         #11567F;
+ $mid-blue:         $cyberpunk;
+ 
  $dark-blue:        #0080B0;
+ $dark-blue:        $hologram;
+
  $midnight:         #000000;
+
  $star-blue:        #71D3DC;
+ $star-blue:        $yoshimi;
+
  $valencia-orange:  #FF9F36;
+ $valencia-orange:  $solar;
+
  $purple-moon:      #7D44CF;
+  $purple-moon:      $mars-rover;
+ 
  $first-light:      #D45B90;
+ $first-light:      $power-button;
+
  $windy-city:       #8A999E;
+  $windy-city:       $pcb;
+
  $snow:             #ffffff;
 
  $error:            #F60000;
+ $error:           $power-wire;
 
  $blue-hover:              #077EA8;
  $mid-blue-hover:          #013D61;
@@ -109,7 +144,7 @@ $grey700: #616161;
 $grey800: #424242;
 
 $backgroundColor: #fff;
-$mainColor: $snowflake-blue;
+$mainColor: $viam-black;
 $accentColor: $valencia-orange;
 
 /* Typography */

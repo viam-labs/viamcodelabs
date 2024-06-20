@@ -1,11 +1,11 @@
-# Snowflake QuickStart Guides
+# Viam Quickstart Guides
 
 https://github.com/Snowflake-Labs/sfquickstarts/assets/2223194/a9f57881-ccf0-4549-89d6-d2fe2569012a
 
-## What are Snowflake Quickstarts?
-Snowflake Quickstarts are interactive tutorials and self-serve demos written in markdown syntax. Quickstarts provide a unique step-by-step reading experience and automatically saves tutorial progress for readers. These tutorials are published at [quickstarts.snowflake.com](https://guides.snowflake.com/)
+## What are Viam Quickstarts?
+Viam Quickstarts are interactive tutorials and self-serve demos written in markdown syntax. Quickstarts provide a unique step-by-step reading experience and automatically saves tutorial progress for readers. These tutorials are published at [quickstarts.snowflake.com](https://guides.snowflake.com/)
 
-You can submit your own Quickstarts to be published on Snowflake's website by submitting a pull request to this repo. This repository contains all the tools and documentation you’ll need for building, writing, and submitting your own Quickstart!
+You can submit your own Quickstarts to be published on Viam's website by submitting a pull request to this repo. This repository contains all the tools and documentation you’ll need for building, writing, and submitting your own Quickstart!
 
 
 ## What's special about the Quickstart format?
@@ -13,12 +13,11 @@ You can submit your own Quickstarts to be published on Snowflake's website by su
 * Powerful and flexible authoring flow in Markdown text
 * Ability to produce interactive web or markdown tutorials without writing any code
 * Easy interactive previewing
-* Usage monitoring via Google Analytics
 * Support for multiple target environments or events (conferences, kiosk, web, offline, etc.)
 * Support for anonymous use - ideal for public computers at developer events
 * Looks great, with a responsive web implementation
-* Remembers where the student left off when returning to a quickstarts
-* Mobile friendly user experience
+* Remembers where the student left off when returning to a quickstart
+* Mobile-friendly user experience
 
 ## Getting Started
 
@@ -32,19 +31,19 @@ You can submit your own Quickstarts to be published on Snowflake's website by su
   4. [Install Go](https://golang.org/doc/install)
      - If you have Homebrew installed, run: `brew install golang`
      - Install claat `go install github.com/googlecodelabs/tools/claat@latest`
-     - Ensure go and claat is in your `PATH` [claat path setup](#claat-related-errors)
+     - Ensure go and claat is in your `PATH` [claat path setup](#common-errors)
   5. **Optional**: install the live-reload plugin for Chrome: [LiveReload](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei)
 
 ### Run locally
 
   1. Fork this repository to your personal GitHub account (top right of webpage, `fork` button)
-  2. Clone your new fork `git clone git@github.com:<YOUR-USERNAME>/sfquickstarts.git sfquickstarts`
-  3. Navigate to the site directory `cd sfquickstarts/site`
+  2. Clone your new fork `git clone git@github.com:<YOUR-USERNAME>/viamquickstarts.git viamquickstarts`
+  3. Navigate to the site directory `cd viamquickstarts/site`
   4. Install node dependencies `npm install`
   5. Run the site `npm run serve`
   6. Open a browser to http://localhost:8000/
 
-Congratulations! You now have the Snowflake Quickstarts landing page running.
+Congratulations! You now have the Viam Quickstarts landing page running.
 
 ### Common Errors
 
@@ -73,37 +72,21 @@ export PATH=$PATH:$HOME/go/bin
   4. Run the website again `npm run serve`
   5. As you edit and save changes, your changes will automatically load in the browser.
 
-#### Template To Follow
-
-- For general guidance, read this [sample Quickstart](site/sfguides/src/sample/sample.md)
-- For structure, layout, sections, etc. use this [QuickStart](https://quickstarts.snowflake.com/guide/getting_started_with_dataengineering_ml_using_snowpark_python/index.html#0) as a template to follow
-
-#### Other Tips
+#### Tips
 
 - Review the [sample.md](site/sfguides/src/sample/sample.md) file to learn more about how to structure your QuickStart for the claat tool. 
 - You can see the supported Quickstart categories [here](site/app/styles/_overrides.scss). If you want to suggest a new category please create a GitHub issue.
-- Checkout [how to use VS Code to write markdown files](https://code.visualstudio.com/docs/languages/markdown)
-- If you want to learn more about Quickstarts, check out this [excellent tutorial](https://medium.com/@zarinlo/publish-technical-tutorials-in-google-codelab-format-b07ef76972cd)
+- Check out [how to use VS Code to write markdown files](https://code.visualstudio.com/docs/languages/markdown)
 
-## How do I get my Snowflake Quickstart on [quickstarts.snowflake.com](https://quickstarts.snowflake.com)?
+## How do I get my Viam Quickstart on [viam.com/quickstarts](https://viam.com/quickstarts)?
 
-1. You will need to sign [Snowflake's CLA](https://github.com/snowflakedb/CLA). The action required on your part is to specify in your (first) pull request comment that you accept it. 
-2. Fork this repository
-3. Clone it to your local machine
-4. Make your changes/edits/updates on your locally cloned repo
-5. Run the site locally again via `npm run serve` and make sure your QuickStart guide shows up as you expect it. Pay close attention to the layout and format. If you are unsure, use this [QuickStart](https://quickstarts.snowflake.com/guide/getting_started_with_dataengineering_ml_using_snowpark_python/index.html#0) as a template to follow.
-6. Push the changes/edits/updates back to your repo
-7. Open this repository on GitHub.com
-8. Click the Pull Request button to open a new pull request
-9. Snowflake will review and approve the submission
+1. Fork this repository
+1. Clone it to your local system
+1. Make your updates on your locally cloned repo
+1. Run the site locally again via `npm run serve` and make sure your QuickStart guide shows up as you expect it. Pay close attention to the layout and format. If you are unsure, use this [QuickStart](https://quickstarts.snowflake.com/guide/getting_started_with_dataengineering_ml_using_snowpark_python/index.html#0) as a template to follow.
+1. Push the updates back to your repo
+1. Open this repository on GitHub.com
+1. Click the Pull Request button to open a new pull request
+1. Viam will review and approve the submission
 
 To learn more about how to submit a pull request on GitHub in general, check out GitHub's [official documentation](https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork).
-
-## Reporting issues or errata in Quickstarts
-
-Quickstarts are not in the scope of Snowflake Global Support. Please do not file support cases for issues or errata in a Quickstart. If you encounter an issue in a Quickstart (outdated copy or data, typos, broken links, etc.), [please file an issue](https://github.com/Snowflake-Labs/sfquickstarts/issues/new/choose) in this repository. Be sure to include the following information:
-
-1. The title of the Quickstart
-2. A link to the Quickstart
-3. A description of the problem
-4. A proposed solution, if applicable (optional)
