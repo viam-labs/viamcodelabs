@@ -2,9 +2,9 @@
 #
 # init.sh
 #
-# Automate these steps to get yourself up and running with SFGuides:
-# * Create boilerplate for SFGuide
-# * Configure a nodemon watch command to rebuild your sfguide on save
+# Automate these steps to get yourself up and running with ViamGuides:
+# * Create boilerplate for ViamGuide
+# * Configure a nodemon watch command to rebuild your viamguide on save
 # - + - + - + - + - + - + - + - + - + - + - + - + - + - + - + - + -
 
 command_exists() {
@@ -17,22 +17,22 @@ command_exists() {
 
 cd `dirname $0`
 
-# validate that a sfguide name was included as an argument
+# validate that a viamguide name was included as an argument
 if [ "$#" -ne 1 ]; then
-	echo "USAGE: npm run template <SFGUIDE_NAME>"
+	echo "USAGE: npm run template <VIAMGUIDE_NAME>"
 	echo ""
 	exit 1
 fi
 
 # env variables
-SFGUIDE_NAME=`echo $1 | tr '[:upper:]' '[:lower:]' | tr ' ' '_'`
+VIAMGUIDE_NAME=`echo $1 | tr '[:upper:]' '[:lower:]' | tr ' ' '_'`
 AUTHOR_NAME=`git config user.name`
 
 # local variables
-sfguide_markdown_filename="sfguides/src/$SFGUIDE_NAME/$SFGUIDE_NAME.md"
-markdown_template="sfguides/src/_template/markdown.template"
+viamguide_markdown_filename="viamguides/src/$VIAMGUIDE_NAME/$VIAMGUIDE_NAME.md"
+markdown_template="viamguides/src/_template/markdown.template"
 #in MacOS sed creates a backup file if zero length extension is not specified e.g. ''
-backup_md="$sfguide_markdown_filename-e"
+backup_md="$viamguide_markdown_filename-e"
 
 # validate that markdown template exist
 if [ ! -f "$markdown_template" ]; then
@@ -43,29 +43,29 @@ if [ ! -f "$markdown_template" ]; then
   exit 0
 fi
 
-# Create a new directory for the sfguide 
-mkdir sfguides/src/$SFGUIDE_NAME
-cp -r sfguides/src/_template/* sfguides/src/$SFGUIDE_NAME/
+# Create a new directory for the viamguide 
+mkdir viamguides/src/$VIAMGUIDE_NAME
+cp -r viamguides/src/_template/* viamguides/src/$VIAMGUIDE_NAME/
 
 # rename markdown template file 
-mv sfguides/src/$SFGUIDE_NAME/markdown.template $sfguide_markdown_filename
+mv viamguides/src/$VIAMGUIDE_NAME/markdown.template $viamguide_markdown_filename
 
-# replace placeholder sfguide id in markdown template file with name provided by command line argument 
+# replace placeholder viamguide id in markdown template file with name provided by command line argument 
 sed -i \
-  -e "s/SFGUIDE_NAME.*/$SFGUIDE_NAME/g" \
-  $sfguide_markdown_filename
+  -e "s/VIAMGUIDE_NAME.*/$VIAMGUIDE_NAME/g" \
+  $viamguide_markdown_filename
 
 # replace placeholder authorname with git username=
 sed -i \
   -e "s/AUTHOR_NAME.*/$AUTHOR_NAME/g" \
-  $sfguide_markdown_filename
+  $viamguide_markdown_filename
 
-# replace placeholder sfguide name in the watch command with name provided in command line argument
+# replace placeholder viamguide name in the watch command with name provided in command line argument
 if [ -f "$backup_md" ]; then
   rm $backup_md
 fi
 
-echo "Markdown file created! Find it at $PWD/sfguides/src/$SFGUIDE_NAME"
+echo "Markdown file created! Find it at $PWD/viamguides/src/$VIAMGUIDE_NAME"
 
 command_exists claat
 command_exists go

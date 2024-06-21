@@ -18,5 +18,5 @@ package-lock.json
 /build/
 /dist/
 
-/sfguides/dist/*
+/viamguides/dist/*
 temp/

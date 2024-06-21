@@ -64,17 +64,17 @@ export PATH=$PATH:$HOME/go/bin
 
 ## Write Your First Quickstart
 
-  1. Terminate the running server with `ctrl C` and navigate to the `sfguides` source directory `cd sfguides/src`
+  1. Terminate the running server with `ctrl C` and navigate to the `viamguides` source directory `cd viamguides/src`
      - In this directory, you will see all existing guides and their markdown files.
   2. Generate a new guide from the guide template `npm run template <GUIDE-NAME>` 
       - Don't use spaces in the name of your guide, instead use hyphens, they are better for SEO.
-  3. Navigate to the newly generated guide (`cd sfguides/src/<GUIDE-NAME>`) and edit your guide in a tool like VS Code.
+  3. Navigate to the newly generated guide (`cd viamguides/src/<GUIDE-NAME>`) and edit your guide in a tool like VS Code.
   4. Run the website again `npm run serve`
   5. As you edit and save changes, your changes will automatically load in the browser.
 
 #### Tips
 
-- Review the [sample.md](site/sfguides/src/sample/sample.md) file to learn more about how to structure your QuickStart for the claat tool. 
+- Review the [sample.md](site/viamguides/src/sample/sample.md) file to learn more about how to structure your QuickStart for the claat tool. 
 - You can see the supported Quickstart categories [here](site/app/styles/_overrides.scss). If you want to suggest a new category please create a GitHub issue.
 - Check out [how to use VS Code to write markdown files](https://code.visualstudio.com/docs/languages/markdown)
 
