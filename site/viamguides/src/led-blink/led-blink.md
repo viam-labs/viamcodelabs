@@ -18,6 +18,10 @@ First, you’ll use the control interface on the [Viam app](https://app.viam.com
 
 ![LED light on](assets/led.png)
 
+> aside positive
+>
+> This tutorial was originally shared [in the Viam documentation](https://docs.viam.com/tutorials/get-started/blink-an-led/).
+
 ### Prerequisites
 
 - None. This is a great place to start if you have never built a robot or a circuit before.
@@ -45,7 +49,7 @@ First, you’ll use the control interface on the [Viam app](https://app.viam.com
 
 <!-- ------------------------ -->
 ## Set up the Raspberry Pi
-Duration: 2
+Duration: 5
 
 Before you build your circuit, you need to set up the operating system on your Raspberry Pi and install `viam-server` on the Pi:
 
@@ -56,6 +60,16 @@ Follow the [Raspberry Pi Setup Guide](https://docs.viam.com/get-started/prepare/
 > aside positive
 > 
 > If you encounter issues, reach out to the [Viam Community Discord](https://discord.com/invite/viam).
+
+### Take a Quiz
+<form>
+  <name>Where is `viam-server` running in this project?</name>
+  <input type="radio" value="The Raspberry Pi">
+  <input type="radio" value="Viam cloud servers in Viam's data center">
+  <input type="radio" value="The computer where you are taking this quiz">
+</form>
+
+Make sure you understand these concepts before moving ahead.
 
 <!-- ------------------------ -->
 ## Build the circuit
@@ -226,7 +240,7 @@ Then, run your code:
 go run blink.go
 ```
 
-f you successfully configured your machine and it is able to connect to the Viam app, you should see something like the following printed to the terminal after running your program. What you see here is a list of the various resources that have been configured on your machine in the Viam app (the board, as well as various built-in services).
+If you successfully configured your machine and it is able to connect to the Viam app, you should see something like the following printed to the terminal after running your program. What you see here is a list of the various resources that have been configured on your machine in the Viam app (the board, as well as various built-in services).
 
 ```bash
 go run blink.go

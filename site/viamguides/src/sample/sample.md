@@ -12,11 +12,11 @@ authors: Viam
 ## Overview 
 Duration: 1
 
-Please use [this markdown file](https://github.com/viam-labs/viamquickstarts/blob/master/site/viamguides/src/_template/markdown.template) as a template for writing your own Snowflake Quickstarts. This example guide has elements that you will use when writing your own quickstarts, including: code snippet highlighting, downloading files, inserting photos, and more. 
+Please use [this markdown file](https://github.com/viam-labs/viamquickstarts/blob/master/site/viamguides/src/_template/markdown.template) as a template for writing your own Viam Quickstarts. This example guide has elements that you will use when writing your own quickstarts, including: code snippet highlighting, downloading files, inserting photos, and more. 
 
-It is important to include on the first page of your guide the following sections: Prerequisites, What you'll learn, What you'll need, and What you'll build. Remember, part of the purpose of a Snowflake Guide is that the reader will have **built** something by the end of the tutorial; this means that actual code needs to be included (not just pseudo-code or concepts).
+It is important to include on the first page of your guide the following sections: Prerequisites, What you'll learn, What you'll need, and What you'll build. Remember, part of the purpose of a Viam Guide is that the reader will have **built** something by the end of the tutorial; this means that actual code needs to be included (not just pseudo-code or concepts).
 
-The rest of this Snowflake Guide explains the steps of writing your own guide. 
+The rest of this Viam Guide explains the steps of writing your own guide. 
 
 ### Prerequisites
 - Familiarity with Markdown syntax
@@ -35,16 +35,16 @@ The rest of this Snowflake Guide explains the steps of writing your own guide.
 - [GoLang](https://golang.org/doc/install) Installed
 
 ### What You’ll Build 
-- A Snowflake Guide
+- A Viam Guide
 
 <!-- ------------------------ -->
 ## Metadata Configuration
 Duration: 2
 
-It is important to set the correct metadata for your Snowflake Guide. The metadata contains all the information required for listing and publishing your guide and includes the following:
+It is important to set the correct metadata for your Viam Guide. The metadata contains all the information required for listing and publishing your guide and includes the following:
 
 
-- **summary**: This is a sample Snowflake Guide 
+- **summary**: This is a sample Viam Guide 
   - This should be a short, 1 sentence description of your guide. This will be visible on the main landing page. 
 - **id**: sample 
   - make sure to match the id here with the name of the file, all one word.
@@ -158,7 +158,7 @@ Videos from youtube can be directly embedded:
 
 ### Inline Surveys
 <form>
-  <name>How do you rate yourself as a user of Snowflake?</name>
+  <name>How do you rate yourself as a user of Viam?</name>
   <input type="radio" value="Beginner">
   <input type="radio" value="Intermediate">
   <input type="radio" value="Advanced">
