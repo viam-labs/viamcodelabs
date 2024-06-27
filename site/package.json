@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "serve": "gulp serve --continue",
+    "serve": "gulp serve --continue --base-url=http://localhost:8000",
     "prod": "gulp serve:dist",
     "deploy": "gulp clean && gulp dist && rm .firebase/*.cache 2> /dev/null || true && firebase deploy --only hosting",
     "export": "gulp build:codelabs",
