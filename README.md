@@ -1,14 +1,14 @@
-# Viam Quickstart Guides
+# Viam Codelabs
 
 https://github.com/Snowflake-Labs/sfquickstarts/assets/2223194/a9f57881-ccf0-4549-89d6-d2fe2569012a
 
-## What are Viam Quickstarts?
-Viam Quickstarts are interactive tutorials and self-serve demos written in markdown syntax. Quickstarts provide a unique step-by-step reading experience and automatically saves tutorial progress for readers. These tutorials are published at [quickstarts.snowflake.com](https://guides.snowflake.com/)
+## What are Viam Codelabs?
+Viam Codelabs are interactive tutorials and self-serve demos written in markdown syntax. Codelabs provide a unique step-by-step reading experience and automatically saves tutorial progress for readers. These tutorials are published at [quickstarts.snowflake.com](https://guides.snowflake.com/)
 
-You can submit your own Quickstarts to be published on Viam's website by submitting a pull request to this repo. This repository contains all the tools and documentation you’ll need for building, writing, and submitting your own Quickstart!
+You can submit your own Codelabs to be published on Viam's website by submitting a pull request to this repo. This repository contains all the tools and documentation you’ll need for building, writing, and submitting your own Codelab!
 
 
-## What's special about the Quickstart format?
+## What's special about the Codelabs format?
 
 * Powerful and flexible authoring flow in Markdown text
 * Ability to produce interactive web or markdown tutorials without writing any code
@@ -16,7 +16,7 @@ You can submit your own Quickstarts to be published on Viam's website by submitt
 * Support for multiple target environments or events (conferences, kiosk, web, offline, etc.)
 * Support for anonymous use - ideal for public computers at developer events
 * Looks great, with a responsive web implementation
-* Remembers where the student left off when returning to a quickstart
+* Remembers where the student left off when returning to a codelab
 * Mobile-friendly user experience
 
 ## Getting Started
@@ -37,13 +37,13 @@ You can submit your own Quickstarts to be published on Viam's website by submitt
 ### Run locally
 
   1. Fork this repository to your personal GitHub account (top right of webpage, `fork` button)
-  2. Clone your new fork `git clone git@github.com:<YOUR-USERNAME>/viamquickstarts.git viamquickstarts`
-  3. Navigate to the site directory `cd viamquickstarts/site`
+  2. Clone your new fork `git clone git@github.com:<YOUR-USERNAME>/viamcodelabs.git viamcodelabs`
+  3. Navigate to the site directory `cd viamcodelabs/site`
   4. Install node dependencies `npm install`
   5. Run the site `npm run serve`
   6. Open a browser to http://localhost:8000/
 
-Congratulations! You now have the Viam Quickstarts landing page running.
+Congratulations! You now have the Viam Codelabs landing page running.
 
 ### Common Errors
 
@@ -62,7 +62,7 @@ export PATH=$PATH:$HOME/go/bin
 #### 3. You get `Error: Cannot find module 'postcss'` when running `npm run serve` 
    - The module may not have been installed for some reason so run `npm install --save-dev postcss gulp-postcss` and then rerun `npm run serve` 
 
-## Write Your First Quickstart
+## Write Your First Codelab
 
   1. Terminate the running server with `ctrl C` and navigate to the `viamguides` source directory `cd viamguides/src`
      - In this directory, you will see all existing guides and their markdown files.
@@ -74,16 +74,16 @@ export PATH=$PATH:$HOME/go/bin
 
 #### Tips
 
-- Review the [sample.md](site/viamguides/src/sample/sample.md) file to learn more about how to structure your QuickStart for the claat tool. 
-- You can see the supported Quickstart categories [here](site/app/styles/_overrides.scss). If you want to suggest a new category please create a GitHub issue.
+- Review the [sample.md](site/viamguides/src/sample/sample.md) file to learn more about how to structure your Codelab for the claat tool. 
+- You can see the supported Codelabs categories [here](site/app/styles/_overrides.scss). If you want to suggest a new category please create a GitHub issue.
 - Check out [how to use VS Code to write markdown files](https://code.visualstudio.com/docs/languages/markdown)
 
-## How do I get my Viam Quickstart on [viam.com/quickstarts](https://viam.com/quickstarts)?
+## How do I get my Viam Codelabs on [viam.com/codelabs](https://viam.com/codelabs)?
 
 1. Fork this repository
 1. Clone it to your local system
 1. Make your updates on your locally cloned repo
-1. Run the site locally again via `npm run serve` and make sure your QuickStart guide shows up as you expect it. Pay close attention to the layout and format. If you are unsure, use this [QuickStart](https://quickstarts.snowflake.com/guide/getting_started_with_dataengineering_ml_using_snowpark_python/index.html#0) as a template to follow.
+1. Run the site locally again via `npm run serve` and make sure your Codelab guide shows up as you expect it. Pay close attention to the layout and format. If you are unsure, use this [Codelab](https://quickstarts.snowflake.com/guide/getting_started_with_dataengineering_ml_using_snowpark_python/index.html#0) as a template to follow.
 1. Push the updates back to your repo
 1. Open this repository on GitHub.com
 1. Click the Pull Request button to open a new pull request
