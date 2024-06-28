@@ -8,9 +8,9 @@ A site for hosting codelabs content.
 The project requires the following major dependencies:
 
 - [Go](https://golang.org/dl/) language
-- [Node.js](https://nodejs.org/en/download/) v10+ and [npm](https://www.npmjs.com/get-npm)
-- [gsutil](https://cloud.google.com/storage/docs/gsutil_install)
+- [Node.js](https://nodejs.org/en/download/) v20 and [npm](https://www.npmjs.com/get-npm) (npm is included with Node.js by default)
 - [claat](https://github.com/googlecodelabs/tools/tree/master/claat#install)
+- [gsutil](https://cloud.google.com/storage/docs/gsutil_install) (only required for production deployment)
 
 With Node installed, run `npm install` in the root of the `site` (this folder):
 

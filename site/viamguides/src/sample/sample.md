@@ -3,7 +3,7 @@ id: sample
 categories: Getting-Started, Developer
 environments: web
 status: Hidden 
-feedback link: https://github.com/viam-labs/viamquickstarts/issues
+feedback link: https://github.com/viam-labs/viamcodelabs/issues
 tags: Getting Started, Data, Developer, DevOps
 authors: Viam
 
@@ -12,7 +12,7 @@ authors: Viam
 ## Overview 
 Duration: 1
 
-Please use [this markdown file](https://github.com/viam-labs/viamquickstarts/blob/master/site/viamguides/src/_template/markdown.template) as a template for writing your own Viam Quickstarts. This example guide has elements that you will use when writing your own quickstarts, including: code snippet highlighting, downloading files, inserting photos, and more. 
+Please use [this markdown file](https://github.com/viam-labs/viamcodelabs/blob/master/site/viamguides/src/_template/markdown.template) as a template for writing your own Viam Codelab. This example guide has elements that you will use when writing your own codelab, including: code snippet highlighting, downloading files, inserting photos, and more. 
 
 It is important to include on the first page of your guide the following sections: Prerequisites, What you'll learn, What you'll need, and What you'll build. Remember, part of the purpose of a Viam Guide is that the reader will have **built** something by the end of the tutorial; this means that actual code needs to be included (not just pseudo-code or concepts).
 
@@ -54,7 +54,7 @@ It is important to set the correct metadata for your Viam Guide. The metadata co
   - `web` is default. If this will be published for a specific event or  conference, include it here.
 - **status**: Published
   - (`Draft`, `Published`, `Deprecated`, `Hidden`) to indicate the progress and whether the viamguide is ready to be published. `Hidden` implies the viamguide is for restricted use, should be available only by direct URL, and should not appear on the main landing page.
-- **feedback link**: https://github.com/viam-labs/viamquickstarts/issues
+- **feedback link**: https://github.com/viam-labs/viamcodelabs/issues
 - **tags**: Getting Started, Developer, Data 
   - Add relevant  tags to make your viamguide easily found and SEO friendly.
 - **authors**: Joyce Lin
@@ -62,7 +62,7 @@ It is important to set the correct metadata for your Viam Guide. The metadata co
 
 ---
 
-You can see the source metadata for this guide you are reading now, on [the github repo](https://github.com/viam-labs/viamquickstarts/blob/master/site/viamguides/src/_template/markdown.template).
+You can see the source metadata for this guide you are reading now, on [the github repo](https://github.com/viam-labs/viamcodelabs/blob/master/site/viamguides/src/_template/markdown.template).
 
 
 <!-- ------------------------ -->
@@ -91,7 +91,7 @@ The total viamguide completion time is calculated automatically for you and will
 ## Code Snippets, Info Boxes, and Tables
 Duration: 2
 
-Look at the [markdown source for this viamguide](https://github.com/viam-labs/viamquickstarts/blob/master/site/viamguides/src/_template/markdown.template) to see how to use markdown to generate code snippets, info boxes, and download buttons. 
+Look at the [markdown source for this viamguide](https://github.com/viam-labs/viamcodelabs/blob/master/site/viamguides/src/_template/markdown.template) to see how to use markdown to generate code snippets, info boxes, and download buttons. 
 
 ### JavaScript
 ```javascript
@@ -147,7 +147,7 @@ for (statement 1; statement 2; statement 3) {
 ## Images, Videos, and Surveys, and iFrames
 Duration: 2
 
-Look at the [markdown source for this guide](https://github.com/viam-labs/viamquickstarts/blob/master/site/viamguides/src/_template/markdown.template) to see how to use markdown to generate these elements. 
+Look at the [markdown source for this guide](https://github.com/viam-labs/viamcodelabs/blob/master/site/viamguides/src/_template/markdown.template) to see how to use markdown to generate these elements. 
 
 ### Images
 ![Puppy](assets/puppy.jpg)
@@ -194,6 +194,6 @@ It's also important to remember that by the time a reader has completed a Guide,
 - importing other markdown files
 
 ### Related Resources
-- [ViamGuides on GitHub](https://github.com/viam-labs/viamquickstarts)
+- [ViamGuides on GitHub](https://github.com/viam-labs/viamcodelabs)
 - [Learn the GitHub Flow](https://guides.github.com/introduction/flow/)
 - [Learn How to Fork a project on GitHub](https://guides.github.com/activities/forking/)

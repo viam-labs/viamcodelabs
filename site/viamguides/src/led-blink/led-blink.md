@@ -4,7 +4,7 @@ summary: Make an LED blink with a Raspberry Pi
 categories: Getting-Started, Developer
 environments: web
 status: Published 
-feedback link: https://github.com/viam-labs/viamquickstarts/issues
+feedback link: https://github.com/viam-labs/viamcodelabs/issues
 tags: Getting Started, Developer
 
 # Make an LED Blink With Buttons And With Code

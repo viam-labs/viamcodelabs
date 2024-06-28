@@ -56,7 +56,7 @@ const DEFAULT_CATEGORY = 'Default';
 // BASE_URL is the canonical base URL where the site will reside. This should
 // always include the protocol (http:// or https://) and NOT including a
 // trailing slash.
-const BASE_URL = args.baseUrl || 'https://quickstarts.snowflake.com';
+const BASE_URL = args.baseUrl || 'https://viam.com/codelabs';
 
 // [Dash] TEMP WORKAROUND to fix codelabs issue -- https://groups.google.com/g/codelab-authors/c/WwSdRF4bjBE/m/tA96pyWOEAAJ
 const CODELABS_ELEMENTS_PREFIX = BASE_URL + '/elements'
@@ -396,14 +396,14 @@ gulp.task('watch:js', () => {
 
 // watch starts all watchers
 gulp.task('watch', gulp.parallel(
-    ()=>{livereload.listen();},
-    'watch:codelabs',
-    'watch:css',
-    'watch:html',
-    'watch:images',
-    'watch:fonts',
-    'watch:js',
-  ));
+  () => { livereload.listen(); },
+  'watch:codelabs',
+  'watch:css',
+  'watch:html',
+  'watch:images',
+  'watch:fonts',
+  'watch:js',
+));
 
 // serve builds the website, starts the webserver, and watches for changes.
 gulp.task('serve', gulp.series(
@@ -893,7 +893,7 @@ const sortCodelabs = (codelabs, view) => {
 // expression or view regular expression into the build/ folder. If no filters
 // are specified (i.e. if codelabRe and viewRe are both undefined), then this
 // function returns all codelabs in the codelabs directory.
-const copyFilteredCodelabs = (dest) =>  {
+const copyFilteredCodelabs = (dest) => {
   // No filters were specified, symlink the codelabs folder directly and save
   // processing.
   if (CODELABS_FILTER === '*' && VIEWS_FILTER === '*') {
@@ -905,7 +905,7 @@ const copyFilteredCodelabs = (dest) =>  {
 
   const codelabs = collectCodelabs();
 
-  for(let i = 0; i < codelabs.length; i++) {
+  for (let i = 0; i < codelabs.length; i++) {
     const codelab = codelabs[i];
     const source = path.join(CODELABS_BUILD_DIR, codelab.id);
     const target = path.join(dest, CODELABS_NAMESPACE, codelab.id);
@@ -945,7 +945,7 @@ const collectCodelabs = () => {
 
     // Iterate over each view and include codelabs for that view.
     let s = new Set();
-    for(let i = 0; i < views.length; i++) {
+    for (let i = 0; i < views.length; i++) {
       let filtered = filterCodelabs(views[i], codelabs).codelabs;
       s.add(...filtered);
     }
