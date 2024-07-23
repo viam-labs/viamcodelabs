@@ -128,7 +128,7 @@ gulp.task('clean', gulp.parallel(
 
 // copy copies the built artifacts in build into dist/
 gulp.task('copy:codelabs', () => {
-  return gulp.src(CODELABS_BUILD_DIR + '/**')
+  return gulp.src(CODELABS_BUILD_DIR + '/**', { encoding: false })
     .pipe(gulp.dest('build/' + CODELABS_NAMESPACE))
     .pipe(livereload());
 })
