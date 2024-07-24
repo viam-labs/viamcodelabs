@@ -3,7 +3,7 @@
   "scripts": {
     "serve": "gulp serve --continue --base-url=http://localhost:8000",
     "prod": "gulp serve:dist --base-url=http://localhost:8000",
-    "deploy": "gulp clean && gulp dist",
+    "build": "gulp clean && gulp dist",
     "export": "gulp build:codelabs",
     "template": "./init.sh",
     "clean": "gulp clean"
