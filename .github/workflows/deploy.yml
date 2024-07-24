@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - master
   workflow_dispatch:
 
 jobs:
@@ -32,6 +33,11 @@ jobs:
           cd site
           npm ci
           npm run deploy
+
+      - name: Include CNAME file
+        shell: bash
+        run: |
+          echo "codelabs.viam.com" > ./site/dist/CNAME
 
       - name: Upload build artifact
         uses: actions/upload-pages-artifact@v3
