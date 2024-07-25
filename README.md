@@ -1,9 +1,7 @@
 # Viam Codelabs
 
-https://github.com/Snowflake-Labs/sfquickstarts/assets/2223194/a9f57881-ccf0-4549-89d6-d2fe2569012a
-
 ## What are Viam Codelabs?
-Viam Codelabs are interactive tutorials and self-serve demos written in markdown syntax. Codelabs provide a unique step-by-step reading experience and automatically saves tutorial progress for readers. These tutorials are published at [quickstarts.snowflake.com](https://guides.snowflake.com/)
+Viam Codelabs are interactive tutorials and self-serve demos written in markdown syntax. Codelabs provide a unique step-by-step reading experience and automatically saves tutorial progress for readers. These tutorials are published at [codelabs.viam.com](https://codelabs.viam.com/)
 
 You can submit your own Codelabs to be published on Viam's website by submitting a pull request to this repo. This repository contains all the tools and documentation you’ll need for building, writing, and submitting your own Codelab!
 
@@ -78,12 +76,12 @@ export PATH=$PATH:$HOME/go/bin
 - You can see the supported Codelabs categories [here](site/app/styles/_overrides.scss). If you want to suggest a new category please create a GitHub issue.
 - Check out [how to use VS Code to write markdown files](https://code.visualstudio.com/docs/languages/markdown)
 
-## How do I get my Viam Codelabs on [viam.com/codelabs](https://viam.com/codelabs)?
+## How do I get my Viam Codelabs on [codelabs.viam.com](https://codelabs.viam.com)?
 
 1. Fork this repository
 1. Clone it to your local system
 1. Make your updates on your locally cloned repo
-1. Run the site locally again via `npm run serve` and make sure your Codelab guide shows up as you expect it. Pay close attention to the layout and format. If you are unsure, use this [Codelab](https://quickstarts.snowflake.com/guide/getting_started_with_dataengineering_ml_using_snowpark_python/index.html#0) as a template to follow.
+1. Run the site locally again via `npm run serve` and make sure your Codelab guide shows up as you expect it. Pay close attention to the layout and format. If you are unsure, use this [Codelab](https://codelabs.viam.com/guide/postman-grpc-apis/index.html#0) as a template to follow.
 1. Push the updates back to your repo
 1. Open this repository on GitHub.com
 1. Click the Pull Request button to open a new pull request
