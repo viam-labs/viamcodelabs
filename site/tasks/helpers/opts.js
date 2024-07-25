@@ -1,21 +1,16 @@
 'use strict';
 
-const autoprefixer = require('autoprefixer');
-const closureCompilerPackage = require('google-closure-compiler');
-const cssdeclarationsorter = require('css-declaration-sorter');
-const cssnano = require('cssnano');
-
-exports.babel = () => {
-  return {
-    presets: ['es2015'],
-  };
-};
+exports.swc = () => {
+  jsc: {
+    target: 'es2022'
+  }
+}
 
 exports.closureCompiler = () => {
   return {
     compilation_level: 'ADVANCED',
     warning_level: 'VERBOSE',
-    language_out: 'ECMASCRIPT5_STRICT',
+    language_out: 'ECMASCRIPT_NEXT',
     generate_exports: true,
     export_local_property_definitions: true,
     output_wrapper: '(function(window, document){\n%output%\n})(window, document);',
@@ -29,23 +24,10 @@ exports.crisper = () => {
   };
 };
 
-exports.htmlmin = () => {
+exports.lightningcss = () => {
   return {
-    collapseWhitespace: true,
-    conservativeCollapse: true,
-    preserveLineBreaks: true,
-    removeComments: true,
-    useShortDoctype: true,
+    minify: true,
   };
-};
-
-exports.postcss = () => {
-  return [
-    autoprefixer({
-    }),
-    cssdeclarationsorter({ order: 'alphabetical' }),
-    cssnano(),
-  ];
 };
 
 exports.sass = () => {
@@ -55,7 +37,7 @@ exports.sass = () => {
   };
 };
 
-exports.uglify = () => {
+exports.terser = () => {
   return {
     compress: {
       drop_console: true,
