@@ -35,6 +35,12 @@ You can use the [Viam web app](https://app.viam.com) to control your machines, o
 ### What You’ll Build 
 - A working Postman collection to control and interact with your Viam machine
 
+### Watch the Video
+
+Follow along with the step-by-step video.
+
+<video id="KaJIXznpssw"></video>
+
 <!-- ------------------------ -->
 
 ## Fork the sample collection
