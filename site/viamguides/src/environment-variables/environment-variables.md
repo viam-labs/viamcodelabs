@@ -173,7 +173,7 @@ Once you have the code working in your local development environment, you may ch
     Once again, `.venv` prepends the commands in your terminal window to indicate the Python packages being used are from this particular environment. You can exit this environment by running `deactivate`.
 1. **Install dependencies**: Install the Viam Python SDK (and other dependencies if required) into the folder. 
     ```bash
-    pip3 install viam-sdk
+    pip install viam-sdk
     ```
 <!-- TODO do i need to activate a venv? -->
 <!-- TODO do i need to chmod? -->
