@@ -118,7 +118,7 @@ Duration: 5
     ```
 1. **Install `python-dotenv` package**: From the command line, still within our virtual environment `.venv`, install the [`python-dotenv`](https://pypi.org/project/python-dotenv/) package to read key-value pairs from an `.env `file and can set them as environment variables.
     ```bash
-    pip3 install python-dotenv
+    pip install python-dotenv
    ```
 1. **Load the variables into your environment**: At the top of your `square.py` file, add the following code to load variables into your environment.
     ```python
