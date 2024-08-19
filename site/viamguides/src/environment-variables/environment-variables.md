@@ -127,8 +127,8 @@ Duration: 5
 
     load_dotenv()  # Loads the environment variables from the .env file
 
-    robot_api_key = os.getenv('ROBOT_API_KEY')
-    robot_api_key_id = os.getenv('ROBOT_API_KEY_ID')
+    ROBOT_API_KEY = os.getenv('ROBOT_API_KEY')
+    ROBOT_API_KEY_ID = os.getenv('ROBOT_API_KEY_ID')
     ```
 1. **Use variables in your code**: You can now use these variables within your code. On rows 7 and 8 in `square.py`, you load variables into the environment. And then on rows 20 and 21, you use those variables to access your machine.
   ![Code in VS Code](assets/vscode.png)
