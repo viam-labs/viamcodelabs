@@ -179,7 +179,7 @@ Once you have the code working in your local development environment, you may ch
 <!-- TODO do i need to chmod? -->
 1. **Copy file(s) to the machine**: From the original computer you were developing on (not the secure shell prompt accessing your machine), copy the `rover.py` file to your machine.
     ```bash
-    scp rover.py <USERNAME>@<REMOTE-HOSTNAME>.local:/home/myboard/robot/rover.py
+    scp rover.py <USERNAME>@<REMOTE-HOSTNAME>.local:./robot/rover.py
     ```
 1. **Add a process**: [Configure a process](https://docs.viam.com/configure/processes/#configure-a-process) by going to the **CONFIGURE** tab of the Viam app. Click the plus icon (**+**) next to your machine in the left-hand menu and select **Process**. Name your process `process-rover`.
   ![Add a process](assets/process.png)
