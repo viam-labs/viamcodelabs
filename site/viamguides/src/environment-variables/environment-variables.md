@@ -32,7 +32,7 @@ In this codelab, let's learn how to use Python variables with our Viam projects 
 ### What You’ll Need
 
 - A computer with MacOS, Windows, or Linux 
-- [Python3](https://www.python.org/downloads/)
+- [Python3](https://www.python.org/downloads/) installed on your computer
 - [VS Code](https://code.visualstudio.com/download) installed, or another similar code editor of your choice.
 
 ### What You'll Build
@@ -102,16 +102,17 @@ Duration: 5
 1. **Show secrets**: The sample code shows you how to authenticate and connect to a machine, as well as some of the methods you can use on your configured components and services. To show your machine’s API key and API key ID in the sample code, toggle **Include secret** on the CONNECT tab’s Code sample page. 
   ![Code sample](assets/Code.png)
 1. **Hide secrets**: Instead of leaving our sensitive credentials hard coded in this code sample, let's set up our API key and API key ID as environment variables. Toggle **Include secrets** once again, this time to remove the credentials from the code sample. 
-1. **Copy the code**: From the command line in your terminal window, create a new file called `square.py`, and copy the code sample into this file.
+1. **Create the code file**: From the command line in your terminal window, create a new file called `rover.py`.
    ```bash
-   touch square.py
+   touch rover.py
    ```
+1. **Paste the code sample**: Copy and paste the code sample from the Viam app into this new file `rover.py`.
 ### Run the sample code
 1. **Create `.env` file**: From the command line, create a new file called `.env` to store our environment variables to use in local development.
     ```bash
     touch .env
     ```
-1. **Input environment variables**: Add your environment variables to the `.env` file, formatted like the following:
+1. **Input environment variables**: Add your own environment variables to the `.env` file, formatted like the following. Make sure to update the values with your own environment variables from the code sample in the Viam app, placed between the double quotes as shown here. 
     ```
     ROBOT_API_KEY="sijdb24bjnxsmp18mij0hace6smihu0r"
     ROBOT_API_KEY_ID="9e135013-f3bf-40fc-a0e3-e6fc66a418d7"
@@ -120,7 +121,7 @@ Duration: 5
     ```bash
     pip install python-dotenv
    ```
-1. **Load the variables into your environment**: At the top of your `square.py` file, add the following code to load variables into your environment.
+1. **Load the variables into your environment**: At the top of your `rover.py` file, add the following code to load variables into your environment.
     ```python
     from dotenv import load_dotenv
     import os
@@ -130,14 +131,16 @@ Duration: 5
     ROBOT_API_KEY = os.getenv('ROBOT_API_KEY')
     ROBOT_API_KEY_ID = os.getenv('ROBOT_API_KEY_ID')
     ```
-1. **Use variables in your code**: You can now use these variables within your code. On rows 7 and 8 in `square.py`, you load variables into the environment. And then on rows 20 and 21, you use those variables to access your machine.
+1. **Use variables in your code**: You can now use these variables within your code. On rows 7 and 8 in `rover.py`, you load variables into the environment. And then on rows 20 and 21, you use those variables to access your machine.
   ![Code in VS Code](assets/vscode.png)
-1. **Run the code:** Run the sample code to connect to your machine
+1. **Run the code:** Run the sample code to connect to your machine, and inspect the output.
    ```bash
-   python square.py
+   python rover.py
    ```
+  ![Run rover script](assets/runRover.png)
 
-If you want to play with the rover, go to the Viam app **CONTROL** tab to interact with your machine’s resources. Click on one of the camera panels and toggle the camera stream on so you can observe the rover’s movements. Or try adding more code to [drive the rover in a square](https://docs.viam.com/get-started/drive-rover/).
+> aside positive
+> If you want to play with the rover, go to the Viam app **CONTROL** tab to interact with your machine’s resources. Click on one of the camera panels and toggle the camera stream on so you can observe the rover’s movements. Or try adding more code to [drive the rover in a square](https://docs.viam.com/get-started/drive-rover/).
 
 In the next few sections, learn how to use variables on your machine in production.
 
@@ -155,25 +158,34 @@ Once you have the code working in your local development environment, you may ch
     ```bash
     ssh <USERNAME>@<REMOTE-HOSTNAME>.local
     ```
+    > aside negative
+    > On some networks, if the `hostname.local` alias fails to resolve, you can use the static IP address found in the Viam app status dropdown. For example, instead of `username@hostname.local`, you could use `username@192.168.2.197`.
+      ![Static IP for machine](assets/staticIP.png)
 1. **Create a project directory**: Create a new directory on your machine to hold your project code.
     ```bash
     mkdir robot
     ```
+1. **Create and activate a virtual environment**: In the new project directory `robot`, create and activate a virtual environment called `.venv` for Python to run in.
+    ```bash
+    python3 -m venv .venv
+    source .venv/bin/activate
+    ```
+    Once again, `.venv` prepends the commands in your terminal window to indicate the Python packages being used are from this particular environment. You can exit this environment by running `deactivate`.
 1. **Install dependencies**: Install the Viam Python SDK (and other dependencies if required) into the folder. 
     ```bash
     pip3 install viam-sdk
     ```
 <!-- TODO do i need to activate a venv? -->
 <!-- TODO do i need to chmod? -->
-1. **Copy file(s) to the machine**: From the original computer you were developing on (not the secure shell prompt accessing your machine), copy the `square.py` file to your machine.
+1. **Copy file(s) to the machine**: From the original computer you were developing on (not the secure shell prompt accessing your machine), copy the `rover.py` file to your machine.
     ```bash
-    scp square.py <USERNAME>@<REMOTE-HOSTNAME>.local:/home/myboard/robot/square.py
+    scp rover.py <USERNAME>@<REMOTE-HOSTNAME>.local:/home/myboard/robot/rover.py
     ```
-1. **Add a process**: [Configure a process](https://docs.viam.com/configure/processes/#configure-a-process) by going to the **CONFIGURE** tab of the Viam app. Click the plus icon (**+**) next to your machine in the left-hand menu and select **Process**. Name your process `process-square`.
+1. **Add a process**: [Configure a process](https://docs.viam.com/configure/processes/#configure-a-process) by going to the **CONFIGURE** tab of the Viam app. Click the plus icon (**+**) next to your machine in the left-hand menu and select **Process**. Name your process `process-rover`.
   ![Add a process](assets/process.png)
 1. **Find executable path**: To find out the path of the Python 3 executable that is being used on your machine, you can input `which python3` in the command line from within your secure shell. You will need this output for the upcoming steps.
-1. **Find file location**: To find the complete path of your `square.py` file on your machine, navigate into the new `robots/` directory, and input `pwd` in the command line from within your secure shell. You will need this output for the next step.
-1. **Configure the process**: Fill in the required fields to [configure your process](https://docs.viam.com/configure/processes/#configure-a-process) and **Save** in the upper right corner of the screen to save your config. The following example configuration executes the command `python3 square.py` in your `/home/myName/robot/` directory every time your machine boots, and keeps it executing indefinitely.
+1. **Find file location**: To find the complete path of your `rover.py` file on your machine, navigate into the new `robot/` directory, and input `pwd` in the command line from within your secure shell. You will need this output for the next step.
+1. **Configure the process**: Fill in the required fields to [configure your process](https://docs.viam.com/configure/processes/#configure-a-process) and **Save** in the upper right corner of the screen to save your config. The following example configuration executes the command `python3 rover.py` in your `home/myName/robot/` directory every time your machine boots, and keeps it executing indefinitely.
   ![Configure a process](assets/processConfig.png)
 
 In our example, we added our code as a [process](https://docs.viam.com/configure/processes/), but you can also add control code to your machine as a [module](https://docs.viam.com/how-tos/create-module/).
