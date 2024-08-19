@@ -199,7 +199,7 @@ This is the recommended approach to [using Viam environment variables within a a
 
 But there are other ways to use environment variables:
 
-- **Add virtual environment**: If you're working with modules, you can add a Python virtual environment to a [persistent folder location](https://docs.viam.com/registry/configure/#default-environment-variables) called `VIAM_MODULE_DATA`, where a module can store data across reboots and versions, after the module is first installed.
+- **Add virtual environment**: If you're working with modules, you can add a Python virtual environment to a [persistent folder location](https://docs.viam.com/registry/configure/#default-environment-variables) set to the environment variable `VIAM_MODULE_DATA`, where a module can store data across reboots and versions, after the module is first installed.
 - **Update root profile**: If you have administrative (root) privileges, you can add environment variables to your machine's root profile (not the user profile). You'll need to modify the global configuration files that affect all users on the system.
   - Linux and MacOS users can update a root profile like at `/etc/profile`, `/etc/bash.bashrc`, or `/etc/zsh/zshrc`
   - Windows users can update **System Properties** → **Environment Variables** to set system-wide variables.
