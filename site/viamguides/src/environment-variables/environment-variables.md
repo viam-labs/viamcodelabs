@@ -134,7 +134,7 @@ Duration: 5
   ![Code in VS Code](assets/vscode.png)
 1. **Run the code:** Run the sample code to connect to your machine
    ```bash
-   python3 square.py
+   python square.py
    ```
 
 If you want to play with the rover, go to the Viam app **CONTROL** tab to interact with your machine’s resources. Click on one of the camera panels and toggle the camera stream on so you can observe the rover’s movements. Or try adding more code to [drive the rover in a square](https://docs.viam.com/get-started/drive-rover/).
