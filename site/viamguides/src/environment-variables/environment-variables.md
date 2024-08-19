@@ -208,7 +208,7 @@ But there are other ways to use environment variables:
 ## Next Steps
 Duration: 2
 
-Knowing how to manage variables allows you to work more efficiently and keep your code DRY (Don't Repeat Yourself) for more maintainable, readable, and error free code. It's also important for security reasons not to leak sensitive data and risk access to secure systems.
+Knowing how to manage environment variables allows you to work more efficiently and keep your code DRY (Don't Repeat Yourself) for more maintainable, readable, and error free code. It's also important for security reasons not to leak sensitive data and risk access to secure systems.
 
 ### What You Learned
 
