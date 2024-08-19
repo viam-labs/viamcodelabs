@@ -1,11 +1,11 @@
 author: Joyce
 id: environment-variables
-summary: This is a sample Viam Guide
+summary: Use Python environment variables in development and in production
 categories: Getting-Started, Developer
 environments: web
 status: Published 
 feedback link: https://github.com/viam-labs/viamcodelabs/issues
-tags: Getting Started, Developer, Data
+tags: Getting Started, Developer
 
 # Working with Python environment variables
 <!-- ------------------------ -->
