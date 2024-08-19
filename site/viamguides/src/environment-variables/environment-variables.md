@@ -86,7 +86,7 @@ Install the Viam Python SDK and all required general dependencies.
 
 1. **Install the SDK**: From the command line in your terminal window (inside the activated `.venv` Python environment), install the Viam Python SDK:
     ```bash
-    pip3 install viam-sdk
+    pip install viam-sdk
     ```
 
     > aside negative
