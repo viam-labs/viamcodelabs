@@ -122,7 +122,7 @@ From here, you can continue updating the payload, exploring other hardware [Comp
 
 Duration: 1
 
-This tutorial was a hands-on introduction to the Viam gRPC API. Browse other methods available using server reflection, or see some of them documented in the [Viam gRPC API collection](https://www.postman.com/viamrobotics/workspace/viam-apis/collection/6618689b086edda70e6d65ba) as a reference. 
+This tutorial was a hands-on introduction to the Viam gRPC API. Browse other methods available using server reflection, or see some of them documented in the [Viam gRPC API collection](https://www.postman.com/viamrobotics/workspace/viam-apis/collection/6618689b086edda70e6d65ba) as a reference. Read more about [how Viam uses gRPC and WebRTC for system architecture](https://hackernoon.com/poor-network-conditions-no-problem-grpc-and-webrtc-for-robots-can-help).
   ![gRPC collection](assets/grpcCollection.png)
 
 In most cases, you won't be developing applications or controlling them using the raw gRPC APIs. Instead, check out these resources:
