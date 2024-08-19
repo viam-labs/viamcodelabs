@@ -31,7 +31,7 @@ In this codelab, let's learn how to use Python variables with our Viam projects 
 
 ### What You’ll Need
 
-<!-- - A macOS or Linux computer TODO: can this be Windows -->
+- A computer with MacOS, Windows, or Linux 
 - [Python3](https://www.python.org/downloads/)
 - [VS Code](https://code.visualstudio.com/download) installed, or another similar code editor of your choice.
 
