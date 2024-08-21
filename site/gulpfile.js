@@ -4,27 +4,22 @@
 const gulp = require('gulp');
 
 // Gulp plugins
-const babel = require('gulp-babel');
 const closureCompilerPackage = require('google-closure-compiler');
 const closureCompiler = closureCompilerPackage.gulp();
 const crisper = require('gulp-crisper');
 const gulpif = require('gulp-if');
-const htmlmin = require('gulp-htmlmin');
 const merge = require('merge-stream');
-const postcss = require('gulp-html-postcss');
-const rename = require('gulp-rename');
+const lightningcss = require('gulp-lightningcss');
 const sass = require('gulp-sass')(require('sass'));
+const swc = require('gulp-swc');
 const through = require('through2');
 const useref = require('gulp-useref');
 const vulcanize = require('gulp-vulcanize');
-const watch = require('gulp-watch');
 const webserver = require('gulp-webserver');
 const livereload = require('gulp-livereload');
 
-// Uglify ES6
-const uglifyes = require('uglify-es');
-const composer = require('gulp-uglify/composer');
-const uglify = composer(uglifyes, console);
+// Terser
+const terser = require('gulp-terser-js');
 
 // Other helpers
 const args = require('yargs').argv;
@@ -32,14 +27,11 @@ const childprocess = require('child_process');
 const claat = require('./tasks/helpers/claat');
 const del = require('del');
 const fs = require('fs-extra');
-const gcs = require('./tasks/helpers/gcs');
 const glob = require('glob');
 const opts = require('./tasks/helpers/opts');
 const path = require('path');
-const serveStatic = require('serve-static');
 const spawn = childprocess.spawn;
 const swig = require('swig-templates');
-const url = require('url');
 
 // DEFAULT_GA is the default Google Analytics tracker ID
 const DEFAULT_GA = 'UA-41491190-9';
@@ -89,12 +81,6 @@ const DELETE_MISSING = !!args.deleteMissing || false;
 
 // DRY_RUN indicates if dry should be used.
 const DRY_RUN = !!args.dry;
-
-// PROD_BUCKET is the default bucket for prod.
-const PROD_BUCKET = gcs.bucketName(args.prodBucket || 'DEFAULT_PROD_BUCKET');
-
-// STAGING_BUCKET is the default bucket for staging.
-const STAGING_BUCKET = gcs.bucketName(args.stagingBucket || 'DEFAULT_STAGING_BUCKET');
 
 // VIEWS_FILTER is the filter to use for view inclusion.
 const VIEWS_FILTER = args.viewsFilter || '*';
@@ -181,7 +167,7 @@ gulp.task('build:html', () => {
   streams.push(gulp.src(`app/views/${VIEWS_FILTER}/view.json`, { base: 'app/' })
     .pipe(generateView())
     .pipe(useref({ searchPath: ['app'] }))
-    .pipe(gulpif('*.js', babel(opts.babel())))
+    .pipe(gulpif('*.js', swc(opts.swc())))
     .pipe(gulp.dest('build'))
     .pipe(gulpif(['*.html', '!index.html'], generateDirectoryIndex()))
     .pipe(livereload())
@@ -239,7 +225,7 @@ gulp.task('build:js', (callback) => {
     ];
     streams.push(gulp.src(cardSorterSrcs, { base: 'app/' })
       .pipe(closureCompiler(opts.closureCompiler(), { platform: 'javascript' }))
-      .pipe(babel(opts.babel()))
+      .pipe(swc(opts.swc()))
       .pipe(gulp.dest('app/js/bundle'))
     );
   }
@@ -251,7 +237,7 @@ gulp.task('build:js', (callback) => {
     'app/bower_components/google-prettify/src/prettify.js',
   ];
   streams.push(gulp.src(bowerSrcs, { base: 'app/' })
-    .pipe(gulpif('*.js', babel(opts.babel())))
+    .pipe(gulpif('*.js', swc(opts.swc())))
     .pipe(gulp.dest('build'))
   );
 
@@ -307,19 +293,7 @@ gulp.task('minify:css', () => {
     '!dist/elements/codelab-elements/*.css',
   ]
   return gulp.src(srcs, { base: 'dist/' })
-    .pipe(postcss(opts.postcss()))
-    .pipe(gulp.dest('dist'));
-});
-
-// minify:css minifies the html
-gulp.task('minify:html', () => {
-  const srcs = [
-    'dist/**/*.html',
-    '!dist/codelabs/**/*',
-  ]
-  return gulp.src(srcs, { base: 'dist/' })
-    .pipe(postcss(opts.postcss()))
-    .pipe(htmlmin(opts.htmlmin()))
+    .pipe(lightningcss(opts.lightningcss()))
     .pipe(gulp.dest('dist'));
 });
 
@@ -331,14 +305,13 @@ gulp.task('minify:js', () => {
     '!dist/elements/codelab-elements/*.js',
   ]
   return gulp.src(srcs, { base: 'dist/' })
-    .pipe(uglify(opts.uglify()))
+    .pipe(terser(opts.terser()))
     .pipe(gulp.dest('dist'));
 });
 
 // minify minifies all minifiable things in dist
 gulp.task('minify', gulp.parallel(
   'minify:css',
-  //'minify:html', //updating to 'const sass = require('gulp-sass')(require('sass'));' breaks html minify
   'minify:js',
 ));
 
@@ -959,35 +932,3 @@ const collectCodelabs = () => {
 
   return codelabs;
 }
-
-// publish:staging:codelabs uploads the dist folder codelabs to a staging
-// bucket. This only uploads the codelabs, the views remain unchanged.
-gulp.task('publish:staging:codelabs', (callback) => {
-  const opts = { dry: DRY_RUN, deleteMissing: DELETE_MISSING };
-  const src = path.join('dist', CODELABS_NAMESPACE, '/');
-  const dest = gcs.bucketFolderPath(STAGING_BUCKET, CODELABS_NAMESPACE);
-  gcs.rsync(src, dest, opts, callback);
-});
-
-// publish:staging:views uploads the dist folder views and associated assets to
-// a staging bucket. This does not upload any of the codelabs.
-gulp.task('publish:staging:views', (callback) => {
-  const opts = { exclude: CODELABS_NAMESPACE, dry: DRY_RUN, deleteMissing: DELETE_MISSING };
-  gcs.rsync('dist', STAGING_BUCKET, opts, callback);
-});
-
-// publish:prod:codelabs syncs codelabs from the staging to the production
-// bucket.
-gulp.task('publish:prod:codelabs', (callback) => {
-  const opts = { dry: DRY_RUN, deleteMissing: DELETE_MISSING };
-  const src = gcs.bucketFolderPath(STAGING_BUCKET, CODELABS_NAMESPACE);
-  const dest = gcs.bucketFolderPath(PROD_BUCKET, CODELABS_NAMESPACE);
-  gcs.rsync(src, dest, opts, callback);
-});
-
-// publish:prod:views syncs views and associated assets from the staging to the
-// production bucket.
-gulp.task('publish:prod:views', (callback) => {
-  const opts = { exclude: CODELABS_NAMESPACE, dry: DRY_RUN, deleteMissing: DELETE_MISSING };
-  gcs.rsync(STAGING_BUCKET, PROD_BUCKET, opts, callback);
-});
