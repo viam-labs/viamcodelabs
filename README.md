@@ -21,21 +21,23 @@ You can submit your own Codelabs to be published on Viam's website by submitting
 
 ### Prerequisites
 
-  1. [Install Node Version Manager (nvm)](https://github.com/nvm-sh/nvm#installing-and-updating)
-     - Not sure if you have it installed? Run `nvm` or `nvm -v` at the command line and hit enter. If you encounter a "command not found" error, you likely do not have it installed.
-  2. Install Node (required to run the site locally) using nvm: `nvm install latest`
-     - If you have Homebrew installed and don't want to use nvm, run: `brew install node`
+  1. [Install mise-en-place (mise)](https://mise.jdx.dev/getting-started.html#quickstart)
+     - Not sure if you have it installed? Run `mise` or `mise -v` at the command line and hit enter. If you encounter a "command not found" error, you likely do not have it installed.
+  2. Install Node (required to run the site locally) using mise automatically by entering the `site/` directory from the terminal: `cd site/`
+     - If you'd like to explicitly install Node using mise: `mise install node@latest`
+     - If you have [Homebrew](https://brew.sh/) installed and don't want to use mise, run: `brew install node`
   3. Install gulp-cli `npm i -g gulp-cli`
-  4. [Install Go](https://golang.org/doc/install)
-     - If you have Homebrew installed, run: `brew install golang`
+  4. Install Go using mise automatically by entering the site directory from the terminal: `cd site/`
+     - If you have [Homebrew](https://brew.sh/) installed, run: `brew install golang`
+     - Follow the [Golang docs](https://golang.org/doc/install) if you don't want to use mise or Homebrew
      - Install claat `go install github.com/googlecodelabs/tools/claat@latest`
-     - Ensure go and claat is in your `PATH` [claat path setup](#common-errors)
+     - Ensure go and claat is in your `PATH` by running `which go` and `which claat`. If nothing is returned, see [claat path setup](#common-errors)
   5. **Optional**: install the live-reload plugin for Chrome: [LiveReload](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei)
 
 ### Run locally
 
   1. Fork this repository to your personal GitHub account (top right of webpage, `fork` button)
-  2. Clone your new fork `git clone git@github.com:<YOUR-USERNAME>/viamcodelabs.git viamcodelabs`
+  2. In your terminal, clone your new fork `git clone git@github.com:<YOUR-USERNAME>/viamcodelabs.git viamcodelabs`
   3. Navigate to the site directory `cd viamcodelabs/site`
   4. Install node dependencies `npm install`
   5. Run the site `npm run serve`
@@ -62,12 +64,15 @@ export PATH=$PATH:$HOME/go/bin
 
 ## Write Your First Codelab
 
-  1. Terminate the running server with `ctrl C` and navigate to the `viamguides` source directory `cd viamguides/src`
+All commands and instructions are in the context of the `site` directory:
+
+  1. If the server is running, terminate it with `ctrl C` and navigate to the `viamguides` source directory `cd viamguides/src`
      - In this directory, you will see all existing guides and their markdown files.
   2. Generate a new guide from the guide template `npm run template <GUIDE-NAME>` 
       - Don't use spaces in the name of your guide, instead use hyphens, they are better for SEO.
-  3. Navigate to the newly generated guide (`cd viamguides/src/<GUIDE-NAME>`) and edit your guide in a tool like VS Code.
-  4. Run the website again `npm run serve`
+  3. Navigate to the newly generated guide (`cd viamguides/src/<GUIDE-NAME>`) and edit your guide in a text editor, like [VS Code](https://code.visualstudio.com/).
+      - To open the current directory in VS Code running the following command in the terminal: `code .`
+  4. From the terminal, run the website server again: `npm run serve`
   5. As you edit and save changes, your changes will automatically load in the browser.
 
 #### Tips
