@@ -31,5 +31,5 @@ jobs:
       - name: Install project deps and build
         run: |
           cd site
-          npm ci
+          npm install
           npm run build
