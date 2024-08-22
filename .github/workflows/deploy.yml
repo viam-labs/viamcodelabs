@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - master
   workflow_dispatch:
 
 jobs:
@@ -32,7 +31,7 @@ jobs:
       - name: Install project deps and build
         run: |
           cd site
-          npm install
+          npm ci
           npm run build
 
       - name: Include CNAME file
