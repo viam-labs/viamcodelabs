@@ -22,6 +22,7 @@ jobs:
             [tools]
             node = "20"
             go = "latest"
+            java = "latest"
 
       - name: Install claat
         shell: bash

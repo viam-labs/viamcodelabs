@@ -38,7 +38,7 @@
     "jscs": "^1.13.1",
     "jshint": "^2.13.4",
     "jshint-stylish": "^2.2.1",
-    "merge-stream": "^1.0.1",
+    "ordered-read-streams": "^2.0.0",
     "path": "^0.12.7",
     "sass": "^1.49.11",
     "swig-templates": "^2.0.3",
