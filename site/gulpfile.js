@@ -8,7 +8,7 @@ const closureCompilerPackage = require('google-closure-compiler');
 const closureCompiler = closureCompilerPackage.gulp();
 const crisper = require('gulp-crisper');
 const gulpif = require('gulp-if');
-const merge = require('merge-stream');
+const merge = require('ordered-read-streams');
 const lightningcss = require('gulp-lightningcss');
 const sass = require('gulp-sass')(require('sass'));
 const swc = require('gulp-swc');
@@ -224,7 +224,7 @@ gulp.task('build:js', (callback) => {
       'app/js/claat/ui/cards/cardsorter_export.js',
     ];
     streams.push(gulp.src(cardSorterSrcs, { base: 'app/' })
-      .pipe(closureCompiler(opts.closureCompiler(), { platform: 'javascript' }))
+      .pipe(closureCompiler(opts.closureCompiler(), { platform: ['native', 'java'] }))
       .pipe(swc(opts.swc()))
       .pipe(gulp.dest('app/js/bundle'))
     );

@@ -347,3 +347,12 @@ function intersect(a, b) {
   }
   return false;
 }
+
+/**
+* @type {{
+*  require: Function,
+*  provide: Function,
+*  module: Function,
+* }}
+*/
+var goog;
