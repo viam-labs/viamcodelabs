@@ -27,15 +27,9 @@ jobs:
         run: |
           go install github.com/googlecodelabs/tools/claat@latest
 
-      - name: Check JAVA_HOME
-        shell: bash
-        run: |
-          echo $JAVA_HOME
-
       - name: Install project deps and build
         shell: bash
         run: |
           cd site
-          npm install
-          npm install google-closure-compiler-java google-closure-compiler-linux
+          npm ci
           npm run build
