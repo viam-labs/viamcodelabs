@@ -12,11 +12,11 @@ tags: Getting Started, Developer
 ## Overview 
 Duration: 2
 
-Variables can be used to configure dynamic requirements within an application. And they can be used to store sensitive information like API keys, machine credentials, and encryption secrets. 
+Environment variables can be used to configure dynamic requirements within an application. And they can be used to store sensitive information like API keys, machine credentials, and encryption secrets. 
 
 In development, it's important to protect this sensitive data from being exposed in code repositories or logs. In production, security is even more critical to prevent unauthorized data leakages and breaches. 
 
-In this codelab, let's learn how to use Python variables with our Viam projects so our code runs smoothly from development to deployment.
+In this codelab, let's learn how to use environment variables in Python with our Viam projects so our code runs smoothly from development to deployment.
 
 ### Prerequisites
 
@@ -25,9 +25,9 @@ In this codelab, let's learn how to use Python variables with our Viam projects 
 ### What You’ll Learn
 
 - How to create a Python virtual environment
-- How to store and reuse values as Python variables
+- How to store and reuse values as environement variables in Python
 - How to move control code to your machine
-- How to use variables during development and in production
+- How to use environment variables during development and in production
 
 ### What You’ll Need
 
@@ -131,7 +131,7 @@ Duration: 5
     ROBOT_API_KEY = os.getenv('ROBOT_API_KEY')
     ROBOT_API_KEY_ID = os.getenv('ROBOT_API_KEY_ID')
     ```
-1. **Use variables in your code**: You can now use these variables within your code. On rows 7 and 8 in `rover.py`, you load variables into the environment. And then on rows 20 and 21, you use those variables to access your machine.
+1. **Use variables in your code**: You can now use these variables within your code. On rows 7 and 8 in `rover.py`, you load values from outside of your code (your environment) into python variables. And then on rows 20 and 21, you use those variables to access your machine.
   ![Code in VS Code](assets/vscode.png)
 1. **Run the code:** Run the sample code to connect to your machine, and inspect the output.
    ```bash
@@ -191,7 +191,7 @@ Once you have the code working in your local development environment, you may ch
 In our example, we added our code as a [process](https://docs.viam.com/configure/processes/), but you can also add control code to your machine as a [module](https://docs.viam.com/how-tos/create-module/).
 
 <!-- ------------------------ -->
-## Using variables on machine in production
+## Using environment variables on machine in production
 Duration: 2
 
 Now that you've moved your control code to your machine, let's set up our environment variables to use in production.
