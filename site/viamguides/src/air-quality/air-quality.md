@@ -10,7 +10,7 @@ tags: Getting Started, Developer, Data
 # Automate air filtration with air quality sensors
 <!-- ------------------------ -->
 ## Overview 
-Duration: 1
+Duration: 2
 
 Automate an air filtration system using air quality sensors and an air filter attached to a box fan. Set up a conditional workflow using Viam to turn on the air filtration when particulate values rise above a specified threshold, and then turn it off again when the air is clean. 
 
@@ -155,7 +155,7 @@ The Raspberry Pi boots from a USB flash drive (or microSD card). You need to ins
 
 <!-- ------------------------ -->
 ## Configure your machine and peripherals
-Duration: 6
+Duration: 5
 
 ### Configure your machine
 
@@ -204,7 +204,7 @@ Duration: 6
 
 <!-- ------------------------ -->
 ## Test the hardware
-Duration: 6
+Duration: 5
 
 ### Test the air sensor
 
@@ -311,7 +311,7 @@ Now that your system is working the way you want it, it's time to tidy up our pr
 
 <!-- ------------------------ -->
 ## Next Steps
-Duration: 3
+Duration: 2
 
 ### Enhance your air filtration system
 Now that you have created an air quality monitoring device with a smart plug, you can customize and make it your own. Suggestions for next steps include the following:
