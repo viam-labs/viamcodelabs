@@ -291,7 +291,7 @@ At this point, you have configured and tested your machine and peripherals, but 
     > The `SENSOR_NAME` and `PLUG_NAME` are the default names for our air sensor and smart plug when added to our Viam machine. Other machine credentials can be found under the **CONNECT** tab, selecting an SDK, and toggling **Include API key** to reveal your credentials within the code sample.
         ![get credentials](assets/apiKey.png)
 1. **Save** your updates.
-1. Restart the machine.
+1. Restart viam-server.
     ![restart the machine](assets/restart.png)
 1. You can test the code by updating the `process.py` file on your Raspberry Pi to update the `do_command` when thresholds are low from `toggle_off` to `toggle_on`. **Save** your code changes, and restart the machine to see if the fan turns on when the air quality is healthy.
     > aside negative
