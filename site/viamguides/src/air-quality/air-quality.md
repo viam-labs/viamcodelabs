@@ -69,10 +69,10 @@ Refer to the following wiring diagram to connect the Raspberry Pi to the PMS7003
 
   ![wiring diagram](assets/wiring.png)
 
-- GPIO 4 (3V) to VCC (Power)
-- GPIO 6 (GND) to GND (Ground)
-- GPIO 8 (TX) to RX (receiver)
-- GPIO 10 (RX) to TX (transmitter)
+- Pin 4 (3V) to VCC (Power)
+- Pin 6 (GND) to GND (Ground)
+- Pin 8 (TX) to RX (receiver)
+- Pin 10 (RX) to TX (transmitter)
 
 To power the Raspberry Pi, you can use the USB cord from earlier to continue providing power from your computer, or use a separate USB power supply.
 
