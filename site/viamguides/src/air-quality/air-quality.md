@@ -61,7 +61,7 @@ Duration: 3
 
 ### Set up your air monitoring device
 
-The PMS7003 particulate sensor measures the air quality and transmits data in a serial stream from the transmitter pin (TX) to the receiver pin (RX pin) on the Raspberry Pi.
+The PMS7003 particulate sensor measures the air quality and transmits data in a [serial stream](https://en.wikipedia.org/wiki/Serial_communication) from the transmitter pin (TX) to the receiver pin (RX pin) on the Raspberry Pi.
 
   ![photo of PMS7003 connected to Raspberry Pi](assets/sensorWPi.jpg)
 
