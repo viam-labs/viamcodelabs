@@ -239,7 +239,7 @@ At this point, you have configured and tested your machine and peripherals, but 
 
 ### Create an automation script
 
-1. To configure the machine to automatically run a command to execute a script, use a [Viam process](https://docs.viam.com/configure/processes/). Create a new file called `process.py`.
+1. To configure the machine to automatically run a command to execute a script, use a [Viam process](https://docs.viam.com/configure/processes/). Create a new file on your computer called `process.py`.
     ```bash
     $ touch process.py
     ```
