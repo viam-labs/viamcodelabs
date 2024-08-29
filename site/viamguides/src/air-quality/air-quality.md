@@ -173,7 +173,7 @@ Duration: 5
 1. In [the Viam app](https://app.viam.com/robots), find the **CONFIGURE** tab. It's time to configure your hardware.
 1. Click the **+** icon in the left-hand menu and select **Component**. 
   ![select component](assets/selectComponent.png)
-1. Select `board`, and find the `pi5` module. This adds the module for working with the Raspberry Pi 5. Leave the default name `board-1` for now.
+1. Select `board`, and find the `pi5` module. This adds the module for working with the Raspberry Pi 5's GPIO pins. Leave the default name `board-1` for now.
 1. Notice adding this module adds the board hardware component called `board-1`. The collapsible card on the right corresponds to the part listed in the left sidebar. 
   ![added board](assets/addedBoard.png)
 1. Click **Save** in the top right to save and apply your configuration changes.
