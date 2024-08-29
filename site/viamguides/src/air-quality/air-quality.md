@@ -12,7 +12,7 @@ tags: Getting Started, Developer, Data
 ## Overview 
 Duration: 2
 
-Leaving an air filtration system running at all times is inefficient but you also don't want to forget to turn it on after the air quality has already reached concerning levels. Use Viam to automate an air filtration system using air quality sensors and an air filter attached to a box fan. Set up a conditional workflow to turn on the air filtration when particulate values rise above a specified threshold, and then turn it off again when the air is clean. 
+Leaving an air filtration system running at all times is inefficient but you also don't want to forget to turn it on if the air quality reaches concerning levels. Use Viam to automate an air filtration system using air quality sensors and an air filter attached to a box fan. Set up a conditional workflow to turn on the air filtration when particulate values rise above a specified threshold, and then turn it off again when the air is clean. 
 
 Instead of leaving the air filtration running at all times, or forgetting to turn it on, this is a way to automatically remove household pollutants and allergens from the air in your home.
 
@@ -65,6 +65,9 @@ The PMS7003 particulate sensor measures the air quality and transmits data in a 
 
   ![photo of PMS7003 connected to Raspberry Pi](assets/sensorWPi.jpg)
 
+> aside positive
+> The website [pinout.xyz](https://pinout.xyz/) is a helpful resource with the exact layout and role of each pin for Raspberry Pi.
+
 Refer to the following wiring diagram to connect the Raspberry Pi to the PMS7003 air monitoring device.
 
   ![wiring diagram](assets/wiring.png)
@@ -79,6 +82,14 @@ To power the Raspberry Pi, you can use the USB cord from earlier to continue pro
 > aside negative
 > Make sure to use an appropriate 5V power supply to run the Raspberry Pi, so you don't damage the device.
 
+<form>
+  <name>How does the air sensor transmit data to your Raspberry Pi?</name>
+  <input type="radio" value="WiFi">
+  <input type="radio" value="I2C">
+  <input type="radio" value="Serial">
+  <input type="radio" value="MQTT">
+</form>
+
 <!-- ------------------------ -->
 ## Set up your air filter
 Duration: 3
@@ -88,7 +99,7 @@ Duration: 3
 Make your own air purifier by combining a box fan and air filter to effectively clean the air in a small to medium sized, closed room.
 
 1. Attach the filter to the back of the fan, ensuring the airflow arrow points toward the fan. The fan should **pull air through the filter** when operating. If the filter will block access to the fan's power knob, now is a good time to switch it to an `on` position.
-1. Secure the filter using 3D-printed clips or duct tape. Write the date when the filter is first used directly on the filter.
+1. Secure the filter using [3D-printed clips](https://www.thingiverse.com/thing:968923) or duct tape. Write the date when the filter is first used directly on the filter.
   ![box fan and air filter](assets/boxFanClips.jpg)
 
 ### Set up your smart plug
@@ -129,6 +140,8 @@ The Raspberry Pi boots from a USB flash drive (or microSD card). You need to ins
 ### Connect with SSH
 
 1. Place the USB flash drive into your Raspberry Pi and boot the Pi by plugging it in to an outlet. A red LED will turn on to indicate that the Pi is connected to power.
+    > aside negative
+    > Make sure you are using a 5V 5A (25W) power supply. USB boot is disabled by default [when connected to a 3A power supply](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#differences-on-raspberry-pi-5), so adequate amperage is required for the optimal performance of your Raspberry Pi 5.
 1. Once the Pi is started, connect to it with SSH. From a command line terminal window, enter the following command. The text in <> should be replaced (including the < and > symbols themselves) with the user and hostname you configured when you set up your Pi.
     ```bash
     ssh <USERNAME>@<HOSTNAME>.local
@@ -163,7 +176,7 @@ Duration: 5
   ![add machine](assets/addMachine.png)
 1. Click **View setup instructions**.
   ![setup instructions](assets/awaitSetup.png)
-1. Install `viam-server` on the Raspberry Pi device that you want to use to communicate with and control your air sensor. Select the `Linux / Aarch64` platform for the Raspberry Pi to control the air sensor, and leave your installation method as `viam-agent`.
+1. Install `viam-server` on the Raspberry Pi device that you want to use to communicate with and control your air sensor. Select the `Linux / Aarch64` platform for the Raspberry Pi to control the air sensor, and leave your installation method as [`viam-agent`](https://docs.viam.com/how-tos/provision-setup/#install-viam-agent).
   ![select platform](assets/selectPlatform.png)
 1. Use the `viam-agent` to download and install `viam-server` on your Raspberry Pi. Follow the instructions to run the command provided in the setup instructions from the SSH prompt of your Raspberry Pi.
   ![installation agent](assets/installAgent.png)
@@ -245,16 +258,12 @@ At this point, you have configured and tested your machine and peripherals, but 
     ```
 1. Copy and paste [this sample code](https://github.com/loopDelicious/viam-pm25-process/blob/main/process.py) into the new file `process.py`. This code will allow your Raspberry Pi to connect to both our sensor and plug and execute our logic.
 1. Now it's time to move your control code to your Raspberry Pi device. [SSH into your Raspberry Pi](https://docs.viam.com/installation/prepare/rpi-setup/#connect-with-ssh) if you're not already SSH'd.
-1. From the SSH prompt on your Raspberry Pi, create a directory called `process` to hold your code. And then, change into that directory.
+
+1. From the SSH prompt on your Raspberry Pi, install the Python package manager.
     ```bash
-    $ mkdir process
-    $ cd process
+    $ sudo apt install -y python3-pip
     ```
-1. Install the Python package manager.
-    ```bash
-    $ sudo apt install python3-pip
-    ```
-1. Install the Viam Python SDK **into that new directory**.
+1. Install the Viam Python SDK into a new directory called `process`.
     ```bash
     $ pip3 install --target=process viam-sdk
     ```
@@ -291,9 +300,8 @@ At this point, you have configured and tested your machine and peripherals, but 
     > The `SENSOR_NAME` and `PLUG_NAME` are the default names for our air sensor and smart plug when added to our Viam machine. Other machine credentials can be found under the **CONNECT** tab, selecting an SDK, and toggling **Include API key** to reveal your credentials within the code sample.
         ![get credentials](assets/apiKey.png)
 1. **Save** your updates.
-1. Restart viam-server.
+1. You can test the code by updating the `process.py` file on your Raspberry Pi to update the `do_command` when thresholds are low from `toggle_off` to `toggle_on`. **Save** your code changes, and **Restart** the machine to see if the fan turns on when the air quality is healthy.
     ![restart the machine](assets/restart.png)
-1. You can test the code by updating the `process.py` file on your Raspberry Pi to update the `do_command` when thresholds are low from `toggle_off` to `toggle_on`. **Save** your code changes, and restart the machine to see if the fan turns on when the air quality is healthy.
     > aside negative
     > You can either edit the file on your computer and copy the updated file over to your Raspberry Pi using `scp` like we did previously. Or you can use the default command-line text editor on Raspberry Pi OS `nano` by entering `nano process.py` from the SSH prompt. 
     ![edit in Nano](assets/nano.png)
