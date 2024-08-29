@@ -33,10 +33,10 @@ Instead of leaving the air filtration running at all times, or forgetting to tur
   - 4 - [3D-printed clips](https://www.thingiverse.com/thing:968923) (or duct tape to attach the air filter to the box fan)
 
 ### What You’ll Learn 
-- how to use modules from [the Viam registry](https://docs.viam.com/registry/)
-- how to set up a continuously running [process](https://docs.viam.com/configure/processes/) on a Viam machine
-- how to use environment variables with your Viam machine
-- how to move control code to your machine
+- How to use modules from [the Viam registry](https://docs.viam.com/registry/)
+- How to set up a continuously running [process](https://docs.viam.com/configure/processes/) on a Viam machine
+- How to use environment variables with your Viam machine
+- How to move control code to your machine
 
 ### What You’ll Need 
 - A computer with MacOS, Windows, or Linux
