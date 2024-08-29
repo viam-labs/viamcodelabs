@@ -12,7 +12,7 @@ tags: Getting Started, Developer, Data
 ## Overview 
 Duration: 2
 
-Automate an air filtration system using air quality sensors and an air filter attached to a box fan. Set up a conditional workflow using Viam to turn on the air filtration when particulate values rise above a specified threshold, and then turn it off again when the air is clean. 
+Leaving an air filtration system running at all times is inefficient but you also don't want to forget to turn it on after the air quality has already reached concerning levels. Use Viam to automate an air filtration system using air quality sensors and an air filter attached to a box fan. Set up a conditional workflow to turn on the air filtration when particulate values rise above a specified threshold, and then turn it off again when the air is clean. 
 
 Instead of leaving the air filtration running at all times, or forgetting to turn it on, this is a way to automatically remove household pollutants and allergens from the air in your home.
 
