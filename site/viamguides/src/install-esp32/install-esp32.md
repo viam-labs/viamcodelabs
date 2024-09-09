@@ -15,7 +15,9 @@ tags: Getting Started, Developer, Data
 
 Duration: 1
 
-Learn how to install the `viam-micro-server` on an ESP32 board. It is a lightweight version of `viam-server` which can run on resource-limited embedded systems that cannot run the fully-featured `viam-server`. The `viam-micro-server` is built from the [micro-RDK](https://github.com/viamrobotics/micro-rdk/tree/main).
+An ESP32 board is a lightweight, cost-effective solution for projects requiring basic control, real-time processing, and wireless communication. It's ideal for simpler robotics or IoT applications where the full power of a single-board computer (SBC) like a Raspberry Pi isn’t necessary.
+
+Learn how to install the lightweight `viam-micro-server` which can run on resource-limited embedded systems, like the ESP32, that cannot run the fully-featured `viam-server`. The `viam-micro-server` is built from the [micro-RDK](https://github.com/viamrobotics/micro-rdk/tree/main).
 
 > aside negative
 > Refer to the [Viam installation guide](https://docs.viam.com/installation/) in the docs for the latest guidelines.
@@ -32,11 +34,11 @@ Learn how to install the `viam-micro-server` on an ESP32 board. It is a lightwei
 
 - A computer running Mac, Windows, or Linux
 - [ESP32 development board](https://www.amazon.com/FREENOVE-ESP32-WROVER-Compatible-Wireless-Detailed/dp/B0CJJHXD1W) - check the Viam docs for [specific resource requirements](https://docs.viam.com/installation/#compatibility)
-- USB data cable - make sure the cable is capable of data transfer (not just charging)
+- USB data cable - make sure the cable is capable of data transfer (not just charging); refer to this resource for [How To Tell If A USB Cable Is For Charging Or Data Transfer](https://glidedigital.com/how-to-tell-if-a-usb-cable-is-for-charging-or-data-transfer)
 
 ### What You’ll Build
 
-- Flash a build of the `viam-micro-server`, along with your machine’s credentials and your wifi information, to your ESP32 development board.
+- Flash a build of the `viam-micro-server`, along with your machine’s credentials and your wifi information, to your ESP32 development board. Then configure and control your ESP32 using Viam.
 
 ### Watch the Video
 
