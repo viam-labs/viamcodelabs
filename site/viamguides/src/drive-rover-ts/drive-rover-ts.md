@@ -40,6 +40,8 @@ Drive a rover in a square using the Viam TypeScript SDK.
 
 Follow along with the step-by-step video.
 
+<video id="VrVqYuKx9ro"></video>
+
 <!-- ------------------------ -->
 
 ## Borrow a Viam rover
