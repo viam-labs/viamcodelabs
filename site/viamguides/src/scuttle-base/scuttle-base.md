@@ -13,7 +13,7 @@ tags: Getting Started, Developer, Scuttle, Rover
 Duration: 2
 
 Mobile robots come in all shapes and sizes, but most kits come with a pre-defined platform that are tough to change for custom use cases.
-The [SCUTTLE](https://www.scuttlerobot.org/) (Sensing, Connected, Utility Transport Taxi for Level Environments) is a modular, open source robotics platform for building mobile robots that puts you in control with 3D printed parts, extruded aluminum, and DIN railing.
+The [SCUTTLE](https://www.scuttlerobot.org/) (Sensing, Connected, Utility Transport Taxi for Level Environments) is a modular, open source robotics base for building mobile robots that puts you in control with 3D printed parts, extruded aluminum, and DIN railing.
 When combined with Viam, you can compose hardware and software to build the smart, roving robot of your dreams.
 
 ![SCUTTLE base on the floor](./assets/scuttle-on-floor.webp)
@@ -60,7 +60,7 @@ The Raspberry Pi boots from a microSD card. You need to install Raspberry Pi OS 
 ### Install Raspberry Pi OS
 1. Connect the microSD card to your computer.
 1. Download the [Raspberry Pi Imager](https://www.raspberrypi.com/software/) and launch it.
-1. Click **CHOOSE DEVICE**. Select your model of Pi, which is Raspberry Pi 4.
+1. Click **CHOOSE DEVICE**. Select your Pi model, which is Raspberry Pi 4.
 1. Click **CHOOSE OS**. Select **Raspberry Pi OS LITE (64-bit)** from the menu.
 1. Click **CHOOSE STORAGE**. From the list of devices, select the USB flash drive you intend to use in your Raspberry Pi.
   ![raspberry pi storage](assets/raspberry-pi-imager.png)
@@ -78,7 +78,7 @@ The Raspberry Pi boots from a microSD card. You need to install Raspberry Pi OS 
 
 ### Connect with SSH
 
-1. Place the microSD card into your Raspberry Pi and boot the Pi by plugging it in to an outlet. A red LED will turn on to indicate that the Pi is connected to power.
+1. Place the microSD card into your Raspberry Pi and boot the Pi by plugging it into an outlet. A red LED will turn on to indicate that the Pi is connected to power.
 1. Once the Pi is started, connect to it with SSH. From a command line terminal window, enter the following command. The text in <> should be replaced (including the < and > symbols themselves) with the user and hostname you configured when you set up your Pi.
     ```bash
     ssh <USERNAME>@<HOSTNAME>.local
@@ -100,7 +100,7 @@ The Raspberry Pi boots from a microSD card. You need to install Raspberry Pi OS 
     ![raspi config](assets/raspi-config-interface-options.png)
 1. [Enable the relevant protocols](https://docs.viam.com/installation/prepare/rpi-setup/#enable-communication-protocols) to support our hardware. Since you are using encoders that communicate over I<sup>2</sup>C, enable **I2C**.
   ![enable i2c](assets/raspi-config-i2c.png)
-1. Confirm the options to enable the I<sup>2</sup>C interface. And shutdown the Pi when you're finished.
+1. Confirm the options to enable the I<sup>2</sup>C interface. And shut down the Pi when you're finished.
     ```bash
     sudo shutdown -h now
     ```
@@ -226,7 +226,7 @@ Finally, the [`camera` component](https://docs.viam.com/components/base/) provid
 
 1. From the **Configure** tab in the Viam app, click on the **+** icon in the left-hand menu, select **Component**, and search for "webcam":
 ![component search for webcam](assets/camera-component.png)
-1. Select the camera / `webcame` module and provide a memorable name, like "webcam". Click **Create**.
+1. Select the camera / `webcam` module and provide a memorable name, like "webcam". Click **Create**.
 1. A component card will appear on the right-hand side. In the **Attributes** field for `video_path`, enter "/dev/video0".
 ![camera component card](assets/camera-component-config.png)
 
@@ -253,7 +253,7 @@ From the **Control** tab, click on the name of your camera component in the left
 
 ![robot control tab for camera component]()
 
-Hovering over the camera stream or to the right-hand side of it, click on the picture-in-picture button to keep stream in view while driving the base from its control card.
+Hovering over the camera stream or to the right-hand side of it, click on the picture-in-picture button to keep the camera stream in view while driving the base from its control card.
 
 ![picture-in-picture camera view while driving the base]()
 
@@ -268,7 +268,7 @@ With this foundation in place, you can add more components and services to build
 
 - **Modify the design**: Check out the [additional models from SCUTTLE]( https://www.scuttlerobot.org/resources/models/) for adding sensors or changing the shape of your robot with a body cover, a lidar mount, or different sized wheels.
 - **Update the controls**: The SCUTTLE kit includes a wireless gamepad. Try adding that as an [input controller](https://docs.viam.com/components/input-controller/) to drive the base away from your computer.
-- **Make it autonoumous**: Add a pre-trained computer vision model to enable following a specific color or recognize objects while navigating around in a pattern.
+- **Make it autonomous**: Add a pre-trained computer vision model to enable following a specific color or recognize objects while navigating around in a pattern.
 
 Check out our [documentation](https://docs.viam.com/) for more inspiration.
 
