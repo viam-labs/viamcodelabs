@@ -115,7 +115,7 @@ The Raspberry Pi mounts to the SCUTTLE base on a custom bracket along the DIN ra
 
 Once it has been mounted using the screws included with the SCUTTLE kit, you can wire the Raspberry Pi to the motor driver board and I<sup>2</sup>C breakout board that connects the AMS5048B encoders over a single [bus](https://en.wikipedia.org/wiki/I%C2%B2C).
 
-![Wiring diagram for Raspberry Pi and SCUTTLE components]()
+![Wiring diagram for Raspberry Pi and SCUTTLE components](assets/scuttle-pi_wiring.png)
 
 > aside positive
 > The website [pinout.xyz](https://pinout.xyz/) is a helpful resource with the exact layout and role of each pin for Raspberry Pi.
