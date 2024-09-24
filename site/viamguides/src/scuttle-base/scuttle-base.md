@@ -251,11 +251,11 @@ Try out some of the other actions like moving straight for a set distance and sp
 
 From the **Control** tab, click on the name of your camera component in the left sidebar to scroll to the associated control card. Activate the View toggle to see a live feed of what your SCUTTLE sees!
 
-![robot control tab for camera component]()
+![robot control tab for camera component](assets/camera-controls.png)
 
 Hovering over the camera stream or to the right-hand side of it, click on the picture-in-picture button to keep the camera stream in view while driving the base from its control card.
 
-![picture-in-picture camera view while driving the base]()
+![picture-in-picture camera view while driving the base](assets/camera-controls-pip.png)
 
 <!-- ------------------------ -->
 ## Next Steps
