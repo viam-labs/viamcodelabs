@@ -141,7 +141,7 @@ Now that you know how to work with your robotic arm using the Viam app, learn ho
 
      # move arm to exact end position then get coordinates:
      # arm
-     arm = Arm.from_robot(machine, "arm")
+     arm = Arm.from_robot(machine, "arm-1")
      arm_return_value = await arm.get_end_position()
      print(f"arm get_end_position return value: {arm_return_value}")
 
