@@ -170,7 +170,7 @@ Now that you know how to work with your robotic arm using the Viam app, learn ho
     )
      print("dipped")
 
-     time.sleep(2)
+     await asyncio.sleep(2)
 
      #what are current joints?
      my_arm_joint_positions = await arm.get_joint_positions()
