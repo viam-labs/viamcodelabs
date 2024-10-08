@@ -119,7 +119,7 @@ To query data from third party tools, let's get the credentials you need to conn
 Duration: 3
 
 > aside negative
-> To use the [MongoDB data source plug-in for Grafana](https://grafana.com/grafana/plugins/grafana-mongodb-datasource/), you'll need either Grafana Cloud or a local instance of Grafana Enterprise. This tutorial will use Grafana Cloud (free trial version available). Only users with the organization `administrator` role can add data sources.
+> To use the [MongoDB data source plugin for Grafana](https://grafana.com/grafana/plugins/grafana-mongodb-datasource/), you'll need either Grafana Cloud or a local instance of Grafana Enterprise. This tutorial will use Grafana Cloud (free trial version available). Only users with the organization `administrator` role can add data sources.
 
 With your machine capturing data and syncing it to Viam, and direct query of that data configured, you can now configure Grafana to access and visualize that data.
 
