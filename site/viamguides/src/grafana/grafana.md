@@ -98,7 +98,7 @@ To query data from third party tools, let's get the credentials you need to conn
    viam data database configure --org-id=<YOUR-ORGANIZATION-ID> --password=<NEW-DBUSER-PASSWORD>
    ```
    > aside negative
-   > This command configures a database user for your organization for use with data query, and sets the password. If you have run this command before, this command instead **_updates_** the password to the new value you set.
+   > This command configures a database user for your organization for use with data query, and sets the password. If you have run this command before, this command instead **_updates_** the password to the new value you set. In other words, changing this password can break existing integrations for your organization.
 1. Determine the connection URI for your organization's MongoDB Atlas Data Federation instance, again using your own `org-id` from the previous steps.
    ```bash
    viam data database hostname --org-id=<YOUR-ORGANIZATION-ID>
