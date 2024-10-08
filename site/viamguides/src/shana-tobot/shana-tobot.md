@@ -108,6 +108,12 @@ Duration: 5
 Now that you know how to work with your robotic arm using the Viam app, learn how to program your arm using code.
 
 1. Under the **CONNECT** tab of your live machine, select the Python SDK we'll use to access the arm. Follow the instructions to install the Python SDK if you haven't already.
+   ```python
+   mkdir shana-tobot && cd shana-tobot
+   python3 -m venv .venv
+   source .venv/bin/activate
+   pip3 install viam-sdk
+   ```
 1. Toggle on `Include API key` to see your machine credentials in the boilerplate code below. Make a note of your `API-KEY`, `API-KEY-ID`, and `MACHINE-ADDRESS-URI` for the next steps.
    ![show API key](assets/connectCode.png)
 1. From the command line of your terminal window, create a new file to contain your script.
@@ -115,6 +121,9 @@ Now that you know how to work with your robotic arm using the Viam app, learn ho
    touch script.py
    ```
 1. To program the movement of the robotic arm, copy and paste the following Python code into `script.py` using your preferred code editor. Be sure to replace the placeholders for `&lt;API-KEY&gt;`, `&lt;API-KEY-ID&gt;`, and `&lt;MACHINE-ADDRESS-URI&gt;` with your own machine credentials from the previous steps.
+
+   > aside negative
+   > The end position in the code below is hard coded according to the arm in relation to the bowl of honey. To determine the end position to suit your scenario, you can move the arm using the Viam app to the ideal position and then run a new script to log the [`arm.get_end_position()`](https://docs.viam.com/appendix/apis/components/arm/#getendposition) return values to the terminal output. Once the ideal end position is known, you can update the values in the script below.
 
    ```python
    import asyncio
