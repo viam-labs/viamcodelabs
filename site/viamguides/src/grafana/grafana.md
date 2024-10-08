@@ -190,7 +190,7 @@ With your data connection established, you can then build dashboards that provid
 
 Duration: 2
 
-Grafana supports the ability to directly [query and transform your data](https://grafana.com/docs/grafana/latest/panels-visualizations/query-transform-data/) within a dashboard to generate more granular visualizations of specific data. You can query your captured data within a Grafana dashboard using either SQL or MQL. See the [guide on querying sensor data](https://docs.viam.com/how-tos/sensor-data-query-with-third-party-tools/) or the [guide on visualizing your data](https://docs.viam.com/tutorials/services/visualize-data-grafana/#visualize-your-data)for more information.
+Grafana supports the ability to directly [query and transform your data](https://grafana.com/docs/grafana/latest/panels-visualizations/query-transform-data/) within a dashboard to generate more granular visualizations of specific data. You can query your captured data within a Grafana dashboard using either SQL or MQL. See the [guide on querying sensor data](https://docs.viam.com/how-tos/sensor-data-query-with-third-party-tools/) or the [guide on visualizing your data](https://docs.viam.com/tutorials/services/visualize-data-grafana/#visualize-your-data) for more information.
 
 ### What You Learned
 
