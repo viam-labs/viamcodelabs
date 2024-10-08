@@ -120,7 +120,6 @@ Now that you know how to work with your robotic arm using the Viam app, learn ho
    import asyncio
 
    from viam.robot.client import RobotClient
-   from viam.rpc.dial import Credentials, DialOptions
    from viam.components.arm import Arm
    from viam.proto.component.arm import JointPositions
    from viam.proto.common import Pose
