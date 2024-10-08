@@ -123,7 +123,6 @@ Now that you know how to work with your robotic arm using the Viam app, learn ho
    from viam.components.arm import Arm
    from viam.proto.component.arm import JointPositions
    from viam.proto.common import Pose
-   import time
 
    async def connect():
      opts = RobotClient.Options.with_api_key(
