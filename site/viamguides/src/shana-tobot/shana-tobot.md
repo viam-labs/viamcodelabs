@@ -160,7 +160,16 @@ Now that you know how to work with your robotic arm using the Viam app, learn ho
 
      #adjust to go a little deeper into the honey
      my_arm_joint_positions = await arm.get_joint_positions()
-     newJointPos =  JointPositions(values=[my_arm_joint_positions.values[0], my_arm_joint_positions.values[1]+6, my_arm_joint_positions.values[2], my_arm_joint_positions.values[3], my_arm_joint_positions.values[4], my_arm_joint_positions.values[5]])
+    newJointPos = JointPositions(
+        values=[
+            my_arm_joint_positions.values[0],
+            my_arm_joint_positions.values[1] + 6,
+            my_arm_joint_positions.values[2],
+            my_arm_joint_positions.values[3],
+            my_arm_joint_positions.values[4],
+            my_arm_joint_positions.values[5],
+        ]
+    )
      print("dipped")
 
      time.sleep(2)
