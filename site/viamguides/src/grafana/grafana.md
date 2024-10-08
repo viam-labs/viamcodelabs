@@ -166,7 +166,7 @@ With your data connection established, you can then build dashboards that provid
    ![new visualization](assets/newViz.png)
 1. Select the name of the data source that you just configured.
    ![select data source](assets/selectDataSource.png)
-1. Write or construct a query in the query language of your data source. The following query searches the `sensorData` database and `readings` collection, and gets readings from an air quality sensor called `pms7003_sensor`, filtering on fine particulate matter with a diameter of 2.5 or 10 micrometers.
+1. Write or construct a query in the query language of your data source, either SQL or MQL. The following MQL query searches the `sensorData` database and `readings` collection, and gets readings from an air quality sensor called `pms7003_sensor`, filtering on fine particulate matter with a diameter of 2.5 or 10 micrometers.
    ```bash
     sensorData.readings.aggregate([
       { $match: { component_name: "pms7003_sensor" } },
