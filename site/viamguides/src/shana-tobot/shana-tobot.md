@@ -176,7 +176,7 @@ Now that you know how to work with your robotic arm using the Viam app, learn ho
      my_arm_joint_positions = await arm.get_joint_positions()
      print(f"myArm get_joint_positions return value: {my_arm_joint_positions}")
 
-     #lift joint 1 and joint 3
+     #lift joint 1 and joint 3, drop joint 2
      newJointPos =  JointPositions(values=[my_arm_joint_positions.values[0], my_arm_joint_positions.values[1]-40, my_arm_joint_positions.values[2]+25, my_arm_joint_positions.values[3]-30, my_arm_joint_positions.values[4], my_arm_joint_positions.values[5]])
 
      #move
