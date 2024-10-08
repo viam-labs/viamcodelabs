@@ -152,7 +152,6 @@ Now that you know how to work with your robotic arm using the Viam app, learn ho
      o_x = -0.15705296827522847
      o_y = 0.24567021047557136
      o_z = -0.95654613732994043
-     # theta: -57.168337265229475
 
      cmd_arm_pose = Pose(x=x, y=y, z=z, o_x=o_x, o_y=o_y, o_z=o_z)
 
