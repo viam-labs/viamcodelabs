@@ -28,7 +28,7 @@ Let's visualize sensor data in Viam with a third-party tool, such as Grafana. In
 - how to capture sensor data with Viam
 - how to set up data management with Viam
 - how to visualize sensor data in Viam with a third-party tool, such as Grafana
-- how to use the MongoDB plug-in with Viam and Grafana
+- how to use the MongoDB plugin with Viam and Grafana
 - how to create a Grafana dashboard using the MongoDB data source
 
 ### What You’ll Need
