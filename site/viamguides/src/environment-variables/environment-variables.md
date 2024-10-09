@@ -25,7 +25,7 @@ In this codelab, let's learn how to use environment variables in Python with our
 ### What You’ll Learn
 
 - How to create a Python virtual environment
-- How to store and reuse values as environement variables in Python
+- How to store and reuse values as environment variables in Python
 - How to move control code to your machine
 - How to use environment variables during development and in production
 
