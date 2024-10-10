@@ -327,7 +327,7 @@ class Config(BaseModel):
     return []
 ```
 
-If there are any invalid values (or unknown fields) in the `config.attributes` passed to the `Config` class, then it will raise a custom ValidationError that will be displayed in the Viam logs. The `Config` class also includes the default value logic included in the `reconfigure` method of the module, making it immediately useful for that use case as well.
+If there are any invalid values (or unknown fields) in the `config.attributes` passed to the `Config` class, then it will raise a custom `ValidationError` that will be displayed in the Viam logs. The `Config` class also includes the default value logic included in the `reconfigure` method of the module, making it immediately useful for that use case as well.
 
 ```python
 # in the reconfigure method
@@ -478,22 +478,170 @@ if __name__ == "__main__":
 ## Create Python control script
 Duration: 2
 
+In this section, you'll create a Python project that includes a script based on the [code sample](https://docs.viam.com/sdks/#code-samples) displayed in the "Connect" tab of the Viam app. In that script, you'll get the required API key and API key ID to connect to a machine from an environment variable.
+
+1. Create the project directory through the command line or using the code editor of your choice:
+
+```console
+mkdir viam-env-validation && cd viam-env-validation
+```
+
+2. Create a Python virtual environment and install the script dependencies:
+
+```console
+python3 -m venv .venv && source .venv/bin/activate && pip install viam-sdk
+```
+
+3. Create the `main.py` script file and add the initial code sample from the Viam app:
+
+```python
+import asyncio
+
+from viam.robot.client import RobotClient
+
+async def connect():
+    opts = RobotClient.Options.with_api_key(
+        # Replace "<API-KEY>" (including brackets) with your machine's api key 
+        api_key='<API-KEY>',
+        # Replace "<API-KEY-ID>" (including brackets) with your machine's api key id
+        api_key_id='<API-KEY-ID>'
+    )
+    return await RobotClient.at_address('my-machine.aabahtjw04.viam.cloud', opts)
+
+async def main():
+    machine = await connect()
+
+    print('Resources:')
+    print(machine.resource_names)
+    
+    # Don't forget to close the machine when you're done!
+    await machine.close()
+
+if __name__ == '__main__':
+    asyncio.run(main())
+```
+
+4. Update the code sample to use environment variables to set the API key and API key ID, as demonstrated in the [Working with Python environment variables codelab](/guide/environment-variables/index.html):
+
+```python
+import asyncio
+import os
+
+from viam.robot.client import RobotClient
+
+ROBOT_API_KEY = os.getenv('ROBOT_API_KEY')
+ROBOT_API_KEY_ID = os.getenv('ROBOT_API_KEY_ID')
+
+async def connect():
+    opts = RobotClient.Options.with_api_key(
+        # Replace "<API-KEY>" (including brackets) with your machine's api key 
+        api_key=ROBOT_API_KEY,
+        # Replace "<API-KEY-ID>" (including brackets) with your machine's api key id
+        api_key_id=ROBOT_API_KEY_ID,
+    )
+    return await RobotClient.at_address('my-machine.aabahtjw04.viam.cloud', opts)
+```
+
+This is fine for getting started; however, it lacks any guarantee that the environment variables will be set as the expected string type. Declaring each of these environment variables to configure any part of the program will also become unweildy and complex as the requirements grow.
+In the next step, you'll learn about Pydantic can help with this use case as well.
+
 <!-- ------------------------ -->
 ## Add environment variable validation
-Duration: 4
+Duration: 3
+
+Pydantic provides a separate package for handling [settings management](https://docs.pydantic.dev/latest/concepts/pydantic_settings/) called `pydantic-settings`, which can load and validate configuration values from environment variables, using the [`python-dotenv`](https://pypi.org/project/python-dotenv/) package internally.
+
+1. Start by installing the `pydantic-settings` dependency in the virtual environment:
+
+```console
+pip install pydantic-settings
+```
+
+2. In the `main.py` script, create the `Settings` class to validate the expected environment variables:
+
+```python
+from pydantic_settings import BaseSettings, SettingsConfigDict
+
+class Settings(BaseSettings):
+    api_key: str = ""
+    api_key_id: str = ""
+
+    model_config = SettingsConfigDict(env_prefix="robot_", env_file=".env")
+```
+
+Similar to the Pydantic `BaseModel`, the `BaseSettings` class references the Python type hints to automatically validate the values set for the environment variables. The `model_config` property allows you to configure the default behavior for managing environment variable parsing and validation, including [case-sensitivity](https://docs.pydantic.dev/latest/concepts/pydantic_settings/#case-sensitivity), referencing [.env files](https://docs.pydantic.dev/latest/concepts/pydantic_settings/#dotenv-env-support), and a [shared prefix for variable names](https://docs.pydantic.dev/latest/concepts/pydantic_settings/#environment-variable-names).
+If there is a `.env` file available, the class will use those values are checking the for global values in the runtime environment.
+
+3. In the script, you can use the `Settings` class in the `connect()` method:
+
+```python
+async def connect():
+    settings = Settings()
+    opts = RobotClient.Options.with_api_key(
+        # Replace "<API-KEY>" (including brackets) with your machine's api key 
+        api_key=settings.api_key,
+        # Replace "<API-KEY-ID>" (including brackets) with your machine's api key id
+        api_key_id=settings.api_key_id,
+    )
+    return await RobotClient.at_address('my-machine.aabahtjw04.viam.cloud', opts)
+```
+
+If there are additional settings you'd like to use in the rest of your script (such as component or service names from the machine configuration), you could move the settings to the `main()` method and pass them into the `connect` method:
+
+```python
+import asyncio
+
+from viam.robot.client import RobotClient
+from viam.components.board import Board
+
+from pydantic_settings import BaseSettings, SettingsConfigDict
+
+class Settings(BaseSettings):
+    api_key: str = ""
+    api_key_id: str = ""
+    board_name: str = "pi"
+
+    model_config = SettingsConfigDict(env_prefix="robot_", env_file=".env")
+
+async def connect(settings: Settings):
+    opts = RobotClient.Options.with_api_key(
+        # Replace "<API-KEY>" (including brackets) with your machine's api key 
+        api_key=settings.api_key
+        # Replace "<API-KEY-ID>" (including brackets) with your machine's api key id
+        api_key_id=settings.api_key_id,
+    )
+    return await RobotClient.at_address('my-machine.aabahtjw04.viam.cloud', opts)
+
+async def main():
+    settings = Settings()
+    machine = await connect(settings)
+
+    print('Resources:')
+    print(machine.resource_names)
+    
+    board = Board.from_robot(machine, settings.board_name)
+
+    # Don't forget to close the machine when you're done!
+    await machine.close()
+
+if __name__ == '__main__':
+    asyncio.run(main())
+```
+
+Now if this script is run in an environment without the proper settings available, it will raise a helpful `ValidationError` to inform you or whoever is using it!
 
 <!-- ------------------------ -->
 ## Conclusion And Resources
 Duration: 1
 
-TBD
+Validation is not always the first thing that comes to mind when creating hardware automations, however they are a useful part of building robust and scalable systems for you and your team as you maintain your projects in the long term.
+Now you're equipped with the knowledge to make this happen!
 
 ### What You Learned
-- creating steps and setting duration
-- adding code snippets
-- embedding images, videos, and surveys
-- importing other markdown files
+- How to validate [modular resource](https://docs.viam.com/registry/#modular-resources) configurations
+- How to validate environment variable settings in a Python [process script](https://docs.viam.com/configure/processes/)
 
 ### Related Resources
-- <link to github code repo>
-- <link to documentation>
+- [APDS9960 sensor module](https://github.com/HipsterBrown/viam-apds9960-sensor/blob/main/src/viam_apds9960_sensor/__main__.py#L32-L39) uses Pydantic for configuration validation
+- [Create a sensor module with Python](https://docs.viam.com/how-tos/sensor-module/)
+- [Write and deploy code to control your machine](https://docs.viam.com/how-tos/develop-app/)
